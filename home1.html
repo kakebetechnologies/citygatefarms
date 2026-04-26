@@ -14,7 +14,9 @@
 
 <head>
    <meta charset="utf-8">
-   <title>Farmland</title>
+   <title>City Gate Mixed Farm - Integrated Model Farm in Lira City, Uganda</title>
+   <meta name="description" content="City Gate Mixed Farm is an integrated model farm in Amuca, Lira City, Uganda specialising in poultry, goats, dairy, and crops. Farm visits, training, and livestock sales available.">
+   <meta name="keywords" content="City Gate Mixed Farm, Lira City, Amuca, Uganda farm, poultry, dairy, goats, broilers, layers, Boer goats, agricultural training">
    <meta content="width=device-width, initial-scale=1.0" name="viewport">
    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
    <link rel="stylesheet" type="text/css" href="css/fonts.css">
@@ -31,8 +33,796 @@
    <link rel="stylesheet" type="text/css" href="css/style.css">
    <link rel="stylesheet" type="text/css" href="css/responsive.css">
    <link rel="shortcut icon" type="image/png" href="images/logo/favcon.png">
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        :root {
+            --farm-green: #2F5D3A;
+            --cream: #FAF7F0;
+            --earth: #C9A978;
+            --charcoal: #1A1A1A;
+            --white: #FFFFFF;
+            --soft-shadow: 0 8px 32px rgba(47, 93, 58, 0.12);
+        }
+        
+        * { box-sizing: border-box; }
+        
+        body { 
+            font-family: 'Ubuntu', -apple-system, sans-serif;
+            color: var(--charcoal);
+            background: var(--cream);
+            overflow-x: hidden;
+        }
+        
+        /* HERO — minimal 5-slide, fade, Ken Burns */
+        :root { --cg-green: #2E7D32; }
+        .cg-hero {
+            position: relative;
+            height: 72vh;
+            min-height: 480px;
+            max-height: 680px;
+            overflow: hidden;
+            background: #0d0d0d;
+            font-family: 'Ubuntu', -apple-system, sans-serif;
+        }
+        @media (max-width: 768px) {
+            .cg-hero { height: 62vh; min-height: 420px; }
+        }
+        .cg-hero__stage {
+            position: absolute;
+            inset: 0;
+        }
+        .cg-hero__slide {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 1.2s ease-in-out, visibility 1.2s ease-in-out;
+        }
+        .cg-hero__slide.is-active {
+            opacity: 1;
+            visibility: visible;
+        }
+        .cg-hero__img {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            transform: scale(1.04);
+            will-change: transform;
+        }
+        .cg-hero__slide.is-active .cg-hero__img {
+            animation: cgZoom 8s ease-out forwards;
+        }
+        @keyframes cgZoom {
+            from { transform: scale(1.04); }
+            to   { transform: scale(1.16); }
+        }
+        .cg-hero__overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.35) 50%, rgba(0,0,0,0.6) 100%);
+        }
+        .cg-hero__content {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 24px;
+            text-align: center;
+            color: #fff;
+            pointer-events: none;
+        }
+        .cg-hero__slide.is-active .cg-hero__content { pointer-events: auto; }
+        .cg-hero__inner {
+            max-width: 780px;
+        }
+        .cg-hero__eyebrow {
+            display: inline-block;
+            font-size: 11px;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 28px;
+            opacity: 0;
+            transform: translateY(16px);
+        }
+        .cg-hero__title {
+            font-size: clamp(40px, 7vw, 78px);
+            font-weight: 300;
+            line-height: 1.08;
+            letter-spacing: -1px;
+            margin: 0 0 20px;
+            color: #fff;
+            opacity: 0;
+            transform: translateY(24px);
+        }
+        .cg-hero__title strong {
+            font-weight: 600;
+        }
+        .cg-hero__sub {
+            font-size: clamp(14px, 1.4vw, 17px);
+            line-height: 1.6;
+            color: rgba(255,255,255,0.85);
+            margin: 0 auto 40px;
+            max-width: 520px;
+            opacity: 0;
+            transform: translateY(24px);
+        }
+        .cg-hero__cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 34px;
+            border-radius: 100px;
+            background: var(--cg-green);
+            color: #fff;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: transform 0.35s ease, box-shadow 0.35s ease, background 0.35s ease;
+            opacity: 0;
+            transform: translateY(24px);
+        }
+        .cg-hero__cta:hover {
+            background: #256428;
+            color: #fff;
+            transform: translateY(-3px);
+            box-shadow: 0 16px 36px rgba(46, 125, 50, 0.45);
+        }
+        .cg-hero__cta i {
+            transition: transform 0.35s ease;
+        }
+        .cg-hero__cta:hover i {
+            transform: translateX(4px);
+        }
+        .cg-hero__slide.is-active .cg-hero__eyebrow { animation: cgRise 0.9s 0.25s ease forwards; }
+        .cg-hero__slide.is-active .cg-hero__title   { animation: cgRise 0.9s 0.45s ease forwards; }
+        .cg-hero__slide.is-active .cg-hero__sub     { animation: cgRise 0.9s 0.65s ease forwards; }
+        .cg-hero__slide.is-active .cg-hero__cta     { animation: cgRise 0.9s 0.85s ease forwards; }
+        @keyframes cgRise {
+            to { opacity: 1; transform: translateY(0); }
+        }
+        /* Arrows */
+        .cg-hero__arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.08);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.2);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 5;
+            font-size: 15px;
+            transition: all 0.3s ease;
+        }
+        .cg-hero__arrow:hover {
+            background: var(--cg-green);
+            border-color: var(--cg-green);
+            transform: translateY(-50%) scale(1.08);
+        }
+        .cg-hero__arrow--prev { left: 32px; }
+        .cg-hero__arrow--next { right: 32px; }
+        /* Dots */
+        .cg-hero__dots {
+            position: absolute;
+            bottom: 48px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 12px;
+            z-index: 5;
+        }
+        .cg-hero__dot {
+            width: 28px;
+            height: 2px;
+            background: rgba(255,255,255,0.35);
+            border: none;
+            padding: 0;
+            cursor: pointer;
+            transition: all 0.4s ease;
+        }
+        .cg-hero__dot.is-active {
+            background: #fff;
+            width: 44px;
+        }
+        /* Scroll indicator */
+        .cg-hero__scroll {
+            position: absolute;
+            left: 50%;
+            bottom: 14px;
+            transform: translateX(-50%);
+            z-index: 5;
+            color: rgba(255,255,255,0.7);
+            font-size: 10px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            animation: cgFloat 2.4s ease-in-out infinite;
+        }
+        .cg-hero__scroll::after {
+            content: '';
+            width: 1px;
+            height: 22px;
+            background: rgba(255,255,255,0.5);
+        }
+        @keyframes cgFloat {
+            0%, 100% { transform: translate(-50%, 0); opacity: 0.7; }
+            50%      { transform: translate(-50%, 6px); opacity: 1; }
+        }
+        @media (max-width: 768px) {
+            .cg-hero__arrow { width: 42px; height: 42px; }
+            .cg-hero__arrow--prev { left: 14px; }
+            .cg-hero__arrow--next { right: 14px; }
+            .cg-hero__dots { bottom: 70px; }
+            .cg-hero__scroll { display: none; }
+        }
+        
+        .modern-btn {
+            padding: 16px 32px;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+        
+        .modern-btn-primary {
+            background: var(--cream);
+            color: var(--farm-green);
+        }
+        
+        .modern-btn-primary:hover {
+            background: var(--white);
+            transform: translateY(-2px);
+        }
+        
+        .modern-btn-outline {
+            background: transparent;
+            color: var(--cream);
+            border: 2px solid var(--cream);
+        }
+        
+        .modern-btn-outline:hover {
+            background: var(--cream);
+            color: var(--farm-green);
+        }
+        
+        @keyframes kenBurns {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.1); }
+        }
+        
+        /* Hero Image Slider */
+        .hero-slider {
+            position: relative;
+            height: 100vh;
+            min-height: 600px;
+            overflow: hidden;
+        }
+        .hero-slider-slides {
+            position: absolute;
+            inset: 0;
+        }
+        .hero-slider-slide {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+        }
+        .hero-slider-slide.active {
+            opacity: 1;
+        }
+        .hero-slider-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            animation: slowZoom 8s ease-in-out infinite alternate;
+        }
+        @keyframes slowZoom {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.1); }
+        }
+        .hero-slider-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(47, 93, 58, 0.85) 0%, rgba(47, 93, 58, 0.5) 100%);
+        }
+        .hero-slider-content {
+            position: relative;
+            z-index: 2;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            padding: 0 24px;
+        }
+        .hero-slider-content h1 {
+            font-size: clamp(40px, 7vw, 80px);
+            font-weight: 700;
+            margin-bottom: 20px;
+            animation: slideUp 1s ease forwards;
+            opacity: 0;
+        }
+        .hero-slider-content p {
+            font-size: clamp(16px, 2vw, 20px);
+            max-width: 600px;
+            line-height: 1.6;
+            margin-bottom: 32px;
+            animation: slideUp 1s ease 0.3s forwards;
+            opacity: 0;
+        }
+        .hero-slider-dots {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 12px;
+            z-index: 3;
+        }
+        .hero-slider-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.4);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .hero-slider-dot.active {
+            background: var(--cream);
+            transform: scale(1.3);
+        }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Image Showcase Slider */
+        .showcase-section {
+            padding: 100px 0;
+            background: var(--cream);
+        }
+        .showcase-slider {
+            position: relative;
+            margin-top: 48px;
+        }
+        .showcase-slider-track {
+            display: flex;
+            gap: 24px;
+            animation: scrollTrack 30s linear infinite;
+        }
+        @keyframes scrollTrack {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .showcase-slide {
+            min-width: 350px;
+            height: 450px;
+            border-radius: 16px;
+            overflow: hidden;
+            position: relative;
+            flex-shrink: 0;
+        }
+        .showcase-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .showcase-slide:hover img {
+            transform: scale(1.1);
+        }
+        .showcase-slide-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 24px;
+            background: linear-gradient(to top, rgba(47, 93, 58, 0.95), transparent);
+            color: var(--cream);
+        }
+        .showcase-slide-overlay h4 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        .showcase-slide-overlay p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        
+        .stats-strip {
+            background: var(--farm-green);
+            padding: 64px 0;
+        }
+        
+        .stats-strip-inner {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            text-align: center;
+        }
+        
+        .stat-item {
+            color: var(--cream);
+        }
+        
+        .stat-number {
+            font-size: clamp(36px, 5vw, 56px);
+            font-weight: 700;
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+        
+        .stat-label {
+            font-size: 14px;
+            opacity: 0.8;
+            letter-spacing: 1px;
+        }
+        
+        .section-pad {
+            padding: 120px 0;
+        }
+        
+        .section-eyebrow {
+            font-size: 12px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--earth);
+            margin-bottom: 16px;
+        }
+        
+        .section-title {
+            font-size: clamp(32px, 4vw, 48px);
+            font-weight: 700;
+            color: var(--charcoal);
+            margin-bottom: 16px;
+        }
+        
+        .sectors-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin-top: 48px;
+        }
+        
+        .sector-card {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            aspect-ratio: 3/4;
+            cursor: pointer;
+        }
+        
+        .sector-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        
+        .sector-card:hover img {
+            transform: scale(1.08);
+        }
+        
+        .sector-card-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(47, 93, 58, 0.9) 0%, rgba(47, 93, 58, 0.3) 60%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 32px;
+        }
+        
+        .sector-card-label {
+            font-size: 14px;
+            color: var(--cream);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+        }
+        
+        .sector-card-promise {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--white);
+        }
+        
+        .pillars-row {
+            background: var(--cream);
+            padding: 120px 0;
+        }
+        
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 48px;
+            margin-top: 64px;
+        }
+        
+        .pillar-item {
+            text-align: center;
+            padding: 32px;
+        }
+        
+        .pillar-icon {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 24px;
+            background: var(--farm-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--cream);
+            font-size: 24px;
+        }
+        
+        .pillar-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--charcoal);
+        }
+        
+        .pillar-desc {
+            font-size: 16px;
+            line-height: 1.7;
+            color: #666;
+        }
+        
+        .products-section {
+            padding: 120px 0;
+            background: var(--white);
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin-top: 48px;
+        }
+        
+        .product-card {
+            background: var(--cream);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--soft-shadow);
+        }
+        
+        .product-card-img {
+            aspect-ratio: 4/3;
+            overflow: hidden;
+        }
+        
+        .product-card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .product-card-body {
+            padding: 24px;
+        }
+        
+        .product-card-name {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--charcoal);
+        }
+        
+        .product-card-price {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--farm-green);
+            margin-bottom: 16px;
+        }
+        
+        .product-card-btn {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            text-align: center;
+            background: var(--farm-green);
+            color: var(--cream);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            border-radius: 4px;
+            transition: background 0.3s ease;
+        }
+        
+        .product-card-btn:hover {
+            background: var(--charcoal);
+        }
+        
+        .cta-band {
+            background: var(--farm-green);
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .cta-band-text {
+            font-size: clamp(24px, 3vw, 36px);
+            font-weight: 600;
+            color: var(--cream);
+            margin-bottom: 32px;
+        }
+        
+        .cta-band .modern-btn {
+            background: var(--cream);
+            color: var(--farm-green);
+        }
+        
+        .blog-section {
+            padding: 120px 0;
+            background: var(--cream);
+        }
+        
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            margin-top: 48px;
+        }
+        
+        .blog-card {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--soft-shadow);
+        }
+        
+        .blog-card-img {
+            aspect-ratio: 16/10;
+            overflow: hidden;
+        }
+        
+        .blog-card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .blog-card-body {
+            padding: 24px;
+        }
+        
+        .blog-card-date {
+            font-size: 12px;
+            color: var(--earth);
+            margin-bottom: 12px;
+        }
+        
+        .blog-card-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--charcoal);
+            line-height: 1.4;
+        }
+        
+        .newsletter-section {
+            background: var(--charcoal);
+            padding: 80px 0;
+        }
+        
+        .newsletter-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 24px;
+        }
+        
+        .newsletter-text {
+            color: var(--cream);
+        }
+        
+        .newsletter-text h3 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        
+        .newsletter-text p {
+            opacity: 0.7;
+        }
+        
+        .newsletter-form {
+            display: flex;
+            gap: 12px;
+        }
+        
+        .newsletter-form input {
+            padding: 16px 24px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            min-width: 300px;
+        }
+        
+        .newsletter-form button {
+            padding: 16px 32px;
+            background: var(--farm-green);
+            color: var(--cream);
+            border: none;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        
+        .newsletter-form button:hover {
+            background: var(--earth);
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: all 0.8s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        @media (max-width: 1024px) {
+            .sectors-grid { grid-template-columns: repeat(2, 1fr); }
+            .pillars-grid { grid-template-columns: 1fr; gap: 32px; }
+            .products-grid { grid-template-columns: repeat(2, 1fr); }
+            .blog-grid { grid-template-columns: 1fr; }
+            .stats-strip-inner { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+        }
+        
+        @media (max-width: 768px) {
+            .section-pad { padding: 80px 0; }
+            .pillars-row { padding: 80px 0; }
+            .products-section { padding: 80px 0; }
+            .blog-section { padding: 80px 0; }
+            .sectors-grid { grid-template-columns: 1fr; }
+            .products-grid { grid-template-columns: 1fr; }
+            .newsletter-inner { text-align: center; justify-content: center; }
+            .newsletter-form { flex-direction: column; width: 100%; }
+            .newsletter-form input { min-width: 100%; }
+            .modern-hero-ctas { flex-direction: column; align-items: center; }
+        }
+    </style>
+ </head>
 
 <body>
    <!--cursor-->
@@ -67,7 +857,7 @@
                            <img src="images/icon/phone.png" alt="icon" class="img-fluid">
                         </div>
                         <div class="iconTxt">
-                           <span>+1 (888)123-4567</span>
+                           <span>+256 123 456 789</span>
                         </div>
                      </div>
                   </a>
@@ -79,7 +869,7 @@
                            <img src="images/icon/mail.png" alt="icon" class="img-fluid">
                         </div>
                         <div class="iconTxt">
-                           <span>info@example.com</span>
+                           <span>info@citygatefarms.com</span>
                         </div>
                      </div>
                   </a>
@@ -92,7 +882,8 @@
                      <div class="iconTxt">
                         <select class="form-select">
                            <option>English</option>
-                           <option>Hindi</option>
+                           <option>Luo</option>
+                           <option>Luganda</option>
                         </select>
                      </div>
                   </div>
@@ -104,152 +895,66 @@
       <div class="mainHeader">
          <nav class="navbar navbar-expand-xl">
             <div class="container">
-               <a class="navbar-brand" href="#"><img src="images/logo/logo.png" alt="loader" class="img-fluid"></a>
+               <a class="navbar-brand" href="#"><img src="images/logo/citygatelogo.png" alt="City Gate Farm" class="img-fluid"></a>
                <div class="collapse navbar-collapse" id="collapsibleNavbar">
-                  <ul class="navbar-nav">
-                     <li class="nav-item dropdown">
-                        <a class="nav-link" href="#" data-bs-toggle="dropdown"><span>Home</span> <i
-                              class="fa fa-angle-right" aria-hidden="true"></i></a>
-                        <ul class="dropdown-menu">
-                           <li><a class="dropdown-item" href="home1.html">Home 01 ( Poultry)</a></li>
-                           <li><a class="dropdown-item" href="home2.html">Home 02 ( Pig )</a></li>
-                           <li><a class="dropdown-item" href="home3.html">Home 03 ( Fish )</a></li>
-                           <li><a class="dropdown-item" href="home4.html">Home 04 ( Horse )</a></li>
-                           <li><a class="dropdown-item" href="home4.html">Home 05 ( Sheep )</a></li>
-                        </ul>
-                     </li>
-                     <li class="nav-item dropdown">
-                        <a class="nav-link" href="#" data-bs-toggle="dropdown">Pages <i
-                              class="fa fa-angle-right" aria-hidden="true"></i></a>
-                        <ul class="dropdown-menu">
-                           <li><a class="dropdown-item" href="about-us.html">About Us</a></li>
-                           <li><a class="dropdown-item" href="faq.html">FAQ</a></li>
-                           <li><a class="dropdown-item" href="login.html">Login</a></li>
-                           <li><a class="dropdown-item" href="page-not-found.html">404 Page</a></li>
-                           <li><a class="dropdown-item" href="coming-soon.html">Coming Soon</a></li>
-                        </ul>
-                     </li>
-                     <li class="nav-item dropdown">
-                        <a class="nav-link" href="#" data-bs-toggle="dropdown">Services <i
-                              class="fa fa-angle-right" aria-hidden="true"></i></a>
-                        <ul class="dropdown-menu">
-                           <li><a class="dropdown-item" href="our-service.html">All Services</a></li>
-                           <li><a class="dropdown-item" href="actigen.html">Actigen</a></li>
-                           <li><a class="dropdown-item" href="broiler-breeder.html">Broiler Breeder</a></li>
-                           <li><a class="dropdown-item" href="layer-breeders.html">Layer Breeders</a></li>
-                           <li><a class="dropdown-item" href="poultry-feed.html">Poultry Feed</a></li>
-                        </ul>
-                     </li>
-                     <li class="nav-item dropdown">
-                        <a class="nav-link" href="#" data-bs-toggle="dropdown">Gallery <i
-                              class="fa fa-angle-right" aria-hidden="true"></i></a>
-                        <ul class="dropdown-menu">
-                           <li><a class="dropdown-item" href="gallery-2-column.html">Gallery 2 Column</a></li>
-                           <li><a class="dropdown-item" href="gallery-3-column.html">Gallery 3 Column</a></li>
-                           <li><a class="dropdown-item" href="video-gallery.html">Video Gallery</a></li>
-                           <li><a class="dropdown-item" href="video-single.html">Video Single</a></li>
-                        </ul>
-                     </li>
-                     <li class="nav-item dropdown">
-                        <a class="nav-link" href="#" data-bs-toggle="dropdown">Blog <i
-                              class="fa fa-angle-right" aria-hidden="true"></i></a>
-                        <ul class="dropdown-menu">
-                           <li><a class="dropdown-item" href="blog.html">Blog Category</a></li>
-                           <li><a class="dropdown-item" href="blog-with-sidebar.html">Blog With Sidebar </a>
-                           </li>
-                           <li><a class="dropdown-item" href="blog-single.html">Blog Single</a></li>
-                        </ul>
-                     </li>
-                     <li class="nav-item dropdown">
-                        <a class="nav-link" href="#" data-bs-toggle="dropdown">Shop <i
-                              class="fa fa-angle-right" aria-hidden="true"></i></a>
-                        <ul class="dropdown-menu">
-                           <li><a class="dropdown-item" href="shop.html">Our Shop</a></li>
-                           <li><a class="dropdown-item" href="shop-single.html">Shop Single</a></li>
-                           <li><a class="dropdown-item" href="cart.html">Shopping Cart</a></li>
-                           <li><a class="dropdown-item" href="checkout.html">Checkout</a></li>
-                        </ul>
-                     </li>
-                     <li class="nav-item dropdown">
-                        <a class="nav-link" href="#" data-bs-toggle="dropdown"><span>Shortcode</span> <i
-                              class="fa fa-angle-right" aria-hidden="true"></i></a>
-                        <div class="dropdown-menu dropdownMegaMenu">
-                           <div class="dropdownRow">
-                              <div class="dropdownCol">
-                                 <ul class="dropdownUl nav flex-column">
-                                    <li class="dropdownItem"><a class="dropdownLink"
-                                          href="sho_accordion.html">Accordion</a></li>
-                                    <li class="dropdownItem"><a class="dropdownLink" href="sho_alert.html">Alert</a>
-                                    </li>
-                                    <li class="dropdownItem"><a class="dropdownLink" href="sho_button.html">Button</a>
-                                    </li>
-                                    <li class="dropdownItem"><a class="dropdownLink" href="sho_client.html">Client</a>
-                                    </li>
-                                    <li class="dropdownItem"><a class="dropdownLink" href="sho_counter.html">Counter</a>
-                                    </li>
-                                    <li class="dropdownItem"><a class="dropdownLink"
-                                          href="sho_feature_with_icon.html">Feature with Icon</a></li>
-                                 </ul>
-                              </div>
-                              <div class="dropdownCol">
-                                 <ul class="dropdownUl nav flex-column">
-                                    <li class="dropdownItem"><a class="dropdownLink"
-                                          href="sho_feature_with_images.html">Feature with Images</a></li>
-                                    <li class="dropdownItem"><a class="dropdownLink" href="sho_form.html">Form</a></li>
-                                    <li class="dropdownItem"><a class="dropdownLink" href="sho_heading.html">Heading</a>
-                                    </li>
-                                    <li class="dropdownItem"><a class="dropdownLink" href="login.html">List</a></li>
-                                    <li class="dropdownItem"><a class="dropdownLink"
-                                          href="sho_portfolio.html">Portfolio</a></li>
-                                    <li class="dropdownItem"><a class="dropdownLink"
-                                          href="sho_pricing-table.html">Pricing Table</a></li>
-                                 </ul>
-                              </div>
-                              <div class="dropdownCol">
-                                 <ul class="dropdownUl nav flex-column">
-                                    <li class="dropdownItem"><a class="dropdownLink" href="sho_social-icon.html">Social
-                                          Icon</a></li>
-                                    <li class="dropdownItem"><a class="dropdownLink" href="sho_tab.html">Tab</a></li>
-                                    <li class="dropdownItem"><a class="dropdownLink" href="sho_team.html">Team</a></li>
-                                    <li class="dropdownItem"><a class="dropdownLink"
-                                          href="sho_testimonials.html">Testimonials</a></li>
-                                 </ul>
-                              </div>
-                              <div class="dropdownCol">
-                                 <div class="dropdownColImg d-none d-xl-block">
-                                    <img src="images/img15.png" alt="menu-img" class="img-fluid">
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </li>
-                     <li class="nav-item">
-                        <a class="nav-link" href="contact-us.html">Contact Us</a>
-                     </li>
-                     <li class="nav-item loginBtn d-block d-md-none">
-                        <div class="btnGroup">
-                           <a class="nav-link btn" href="login.html">Log In</a>
-                           <a class="nav-link btn" href="login.html">Register</a>
-                        </div>
-                     </li>
-                  </ul>
-               </div>
-               <div class="rightMenu">
-                  <ul class="nav">
-                     <li class="nav-item searchBtn">
-                        <a class="nav-link" href="javascript:void(0);"><img src="images/icon/search.png" alt="loader"
-                              class="img-fluid"></a>
-                     </li>
-                     <li class="nav-item cardBtn">
-                        <a class="nav-link" href="javascript:void(0);"><img src="images/icon/card.png" alt="loader"
-                              class="img-fluid"><span class="badge rounded-pill">2</span></a>
-                     </li>
-                     <li class="nav-item loginBtn d-none d-md-block">
-                        <div class="btnGroup">
-                           <a class="nav-link btn" href="login.html">Log In</a>
-                           <a class="nav-link btn" href="login.html">Register</a>
-                        </div>
-                     </li>
+<ul class="navbar-nav">
+<li class="nav-item active">
+                         <a class="nav-link" href="home1.html"><span>Home</span></a>
+                      </li>
+                      <li class="nav-item">
+                         <a class="nav-link" href="about-us.html">About Us</a>
+                      </li>
+                      <li class="nav-item dropdown">
+                         <a class="nav-link" href="our-service.html" data-bs-toggle="dropdown">Services <i
+                               class="fa fa-angle-right" aria-hidden="true"></i></a>
+                         <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="our-service.html">All Services</a></li>
+                            <li><a class="dropdown-item" href="poultry-feed.html">Poultry (Chicken)</a></li>
+                            <li><a class="dropdown-item" href="broiler-breeder.html">Goat Farming</a></li>
+                            <li><a class="dropdown-item" href="layer-breeders.html">Dairy (Cows)</a></li>
+                            <li><a class="dropdown-item" href="actigen.html">Crops</a></li>
+                         </ul>
+                      </li>
+<li class="nav-item">
+                         <a class="nav-link" href="gallery-3-column.html">Gallery</a>
+                      </li>
+                      <li class="nav-item">
+                         <a class="nav-link" href="blog.html">Blog</a>
+                      </li>
+                      <li class="nav-item">
+                         <a class="nav-link" href="shop.html">Shop</a>
+                      </li>
+<li class="nav-item">
+                         <a class="nav-link" href="faq.html">FAQ</a>
+                      </li>
+                      <li class="nav-item">
+                         <a class="nav-link" href="login.html">Book a Visit</a>
+                      </li>
+                      <li class="nav-item">
+                         <a class="nav-link" href="contact-us.html">Contact</a>
+                      </li>
+                      <li class="nav-item loginBtn d-block d-md-none">
+                         <div class="btnGroup">
+                            <a class="nav-link btn" href="login.html">Book a Visit</a>
+                         </div>
+                      </li>
+                   </ul>
+                </div>
+                <div class="rightMenu">
+                   <ul class="nav">
+                      <li class="nav-item searchBtn">
+                         <a class="nav-link" href="javascript:void(0);"><img src="images/icon/search.png" alt="loader"
+                               class="img-fluid"></a>
+                      </li>
+                      <li class="nav-item cardBtn">
+                         <a class="nav-link" href="javascript:void(0);"><img src="images/icon/card.png" alt="loader"
+                               class="img-fluid"><span class="badge rounded-pill">2</span></a>
+                      </li>
+                      <li class="nav-item loginBtn d-none d-md-block">
+                         <div class="btnGroup">
+                            <a class="nav-link btn" href="login.html">Book a Visit</a>
+                         </div>
+                      </li>
                      <li class="nav-item toggleBtn">
                         <a class="nav-link navbar-toggler" href="javascript:void(0);" data-bs-toggle="collapse"
                            data-bs-target="#collapsibleNavbar">
@@ -263,295 +968,315 @@
       </div>
       <!--overlay-->
       <div class="widgetOverlay"></div>
-   </header>
-   <!--header end-->
-   <!--search box start-->
-   <div class="searchBox searchBox1">
-      <div class="container">
-         <div class="searchBoxInner">
-            <div class="searchHeading">
-               <h4>Search Our Site</h4>
+</header>
+    <!--header end-->
+    
+    <!-- HERO SLIDER -->
+    <section class="cg-hero" id="cgHero" aria-label="City Gate Mixed Farm">
+        <div class="cg-hero__stage">
+            <div class="cg-hero__slide is-active" data-slide="0">
+                <div class="cg-hero__img" style="background-image: url('images/gallary/pexels-chicken-1867521_1920.jpg');"></div>
+                <div class="cg-hero__overlay"></div>
+                <div class="cg-hero__content">
+                    <div class="cg-hero__inner">
+                        <span class="cg-hero__eyebrow">Poultry</span>
+                        <h1 class="cg-hero__title">Modern <strong>Poultry Farming</strong></h1>
+                        <p class="cg-hero__sub">Clean housing. Organized feeding. Healthy birds.</p>
+                        <a href="broiler-breeder.html" class="cg-hero__cta">Explore Poultry <i class="fa fa-arrow-right"></i></a>
+                    </div>
+                </div>
             </div>
-            <div class="searchInput">
-               <div class="input-group">
-                  <input type="text" class="form-control" placeholder="Search">
-                  <a href="javascript:void(0);" class="input-group-text searchButton"><span>Search</span> <img
-                        src="images/icon/icon-right.png" alt="btn-arrow" class="img-fluid"></a>
-               </div>
+            <div class="cg-hero__slide" data-slide="1">
+                <div class="cg-hero__img" style="background-image: url('images/gallary/jaclou-dl-cow-4270355_1920.jpg');"></div>
+                <div class="cg-hero__overlay"></div>
+                <div class="cg-hero__content">
+                    <div class="cg-hero__inner">
+                        <span class="cg-hero__eyebrow">Dairy</span>
+                        <h1 class="cg-hero__title">Fresh <strong>Daily Milk</strong></h1>
+                        <p class="cg-hero__sub">Straight from a well-cared-for herd in Amuca.</p>
+                        <a href="shop.html" class="cg-hero__cta">View Dairy <i class="fa fa-arrow-right"></i></a>
+                    </div>
+                </div>
             </div>
-            <div class="quickSearch">
-               <p><span>Quick Search:</span>Poultry, Pig Farm, Fish Feed, Hen Feeds</p>
+            <div class="cg-hero__slide" data-slide="2">
+                <div class="cg-hero__img" style="background-image: url('images/gallary/walter46-goat-4138049_1920.jpg');"></div>
+                <div class="cg-hero__overlay"></div>
+                <div class="cg-hero__content">
+                    <div class="cg-hero__inner">
+                        <span class="cg-hero__eyebrow">Goats</span>
+                        <h1 class="cg-hero__title">Premium <strong>Goat Breeds</strong></h1>
+                        <p class="cg-hero__sub">Boer &amp; Savannah — strong, healthy, farm-raised.</p>
+                        <a href="shop.html" class="cg-hero__cta">See Goats <i class="fa fa-arrow-right"></i></a>
+                    </div>
+                </div>
             </div>
-         </div>
-      </div>
-   </div>
-   <!--search box end-->
-   <!--cart side box end-->
-   <div class="cartSideBox cartSideBox1" id="cartSideBox">
-      <div class="cartSideBoxInner">
-         <div class="shoppingCart d-flex justify-content-between align-items-center">
-            <h4 class="mb-0">Shopping Cart</h4>
-            <a href="javascript:void(0);" class="closeCart"><img src="images/icon/close.png" alt="close"
-                  class="img-fluid"></a>
-         </div>
-         <span class="itemsCounter">02 items</span>
-         <div class="allItems">
-            <div class="singleItems">
-               <div class="itemImage">
-                  <img src="images/img23.png" alt="close" class="img-fluid">
-               </div>
-               <div class="itemContent">
-                  <div class="itemTitlePriceGroup">
-                     <div class="itemTitle">
-                        <h5>Bovans Browns</h5>
-                     </div>
-                     <div class="itemPrice">
-                        <ins>$45</ins> <del>60</del>
-                     </div>
-                  </div>
-                  <div class="addItems">
-                     <div class="incrementItems">
-                        <div class="input-group qty-container">
-                           <a href="javascript:void(0);" class="input-group-text qty-btn-minus">-</a>
-                           <input type="text" class="form-control input-qty" placeholder="" value="0">
-                           <a href="javascript:void(0);" class="input-group-text qty-btn-plus">+</a>
-                        </div>
-                     </div>
-                     <div class="removeItems">
-                        <a href="javascript:void(0);" class="removeItem">REMOVE</a>
-                     </div>
-                  </div>
-               </div>
+            <div class="cg-hero__slide" data-slide="3">
+                <div class="cg-hero__img" style="background-image: url('images/gallary/marcusvu-coffee-2992598_1920.jpg');"></div>
+                <div class="cg-hero__overlay"></div>
+                <div class="cg-hero__content">
+                    <div class="cg-hero__inner">
+                        <span class="cg-hero__eyebrow">Crops</span>
+                        <h1 class="cg-hero__title">Sustainable <strong>Farming</strong></h1>
+                        <p class="cg-hero__sub">Coffee and banana, grown on our 4-acre model farm.</p>
+                        <a href="our-service.html" class="cg-hero__cta">Explore Crops <i class="fa fa-arrow-right"></i></a>
+                    </div>
+                </div>
             </div>
-            <div class="singleItems">
-               <div class="itemImage">
-                  <img src="images/img24.png" alt="close" class="img-fluid">
-               </div>
-               <div class="itemContent">
-                  <div class="itemTitlePriceGroup">
-                     <div class="itemTitle">
-                        <h5>Organic Scratch Grains</h5>
-                     </div>
-                     <div class="itemPrice">
-                        <ins>$45</ins> <del>60</del>
-                     </div>
-                  </div>
-                  <div class="addItems">
-                     <div class="incrementItems">
-                        <div class="input-group qty-container">
-                           <a href="javascript:void(0);" class="input-group-text qty-btn-minus">-</a>
-                           <input type="text" class="form-control input-qty" placeholder="" value="0">
-                           <a href="javascript:void(0);" class="input-group-text qty-btn-plus">+</a>
-                        </div>
-                     </div>
-                     <div class="removeItems">
-                        <a href="javascript:void(0);" class="removeItem">REMOVE</a>
-                     </div>
-                  </div>
-               </div>
+            <div class="cg-hero__slide" data-slide="4">
+                <div class="cg-hero__img" style="background-image: url('images/gallary/rooster-farm.jpg');"></div>
+                <div class="cg-hero__overlay"></div>
+                <div class="cg-hero__content">
+                    <div class="cg-hero__inner">
+                        <span class="cg-hero__eyebrow">Training &amp; Visits</span>
+                        <h1 class="cg-hero__title">Visit. Learn. <strong>Grow.</strong></h1>
+                        <p class="cg-hero__sub">Hands-on training and farm tours in Lira City.</p>
+                        <a href="contact-us.html" class="cg-hero__cta">Book a Visit <i class="fa fa-arrow-right"></i></a>
+                    </div>
+                </div>
             </div>
-         </div>
-         <div class="priceTbl">
-            <div class="priceBody">
-               <div class="priceTr">
-                  <div class="priceTd">
-                     <h6>Subtotal</h6>
-                  </div>
-                  <div class="priceTd text-end">
-                     <span>$120.00</span>
-                  </div>
-               </div>
-               <div class="priceTr">
-                  <div class="priceTd">
-                     <h6>Discount</h6>
-                  </div>
-                  <div class="priceTd text-end">
-                     <span>-$30.00</span>
-                  </div>
-               </div>
-            </div>
+        </div>
 
-            <div class="priceFoot">
-               <div class="priceTr">
-                  <div class="priceTd">
-                     <h5>Total</h5>
-                  </div>
-                  <div class="priceTd text-end">
-                     <span>$90.00</span>
-                  </div>
-               </div>
-            </div>
-         </div>
-         <div class="checkoutTaxIncluded">
-            <p>Tax included and shipping calculated at checkout</p>
-            <div class="form-check">
-               <label class="form-check-label">
-                  <input class="form-check-input" type="checkbox" name="remember">I agree with <a
-                     href="javascript:void(0);">Terms & Conditions</a>
-               </label>
-            </div>
-         </div>
-         <div class="cartBtnGroup">
-            <a class="btnCustom3 btn-1 hover-slide-down" href="javascript:void(0);">
-               <span>Checkout <img src="images/icon/arrow-right.png" alt="right" class="img-fluid"></span>
-            </a>
-            <a class="btnCustom4 btn-1 hover-slide-down" href="javascript:void(0);">
-               <span>View Cart <img src="images/icon/arrow-right.png" alt="right" class="img-fluid"></span>
-            </a>
-         </div>
-      </div>
-   </div>
-   <!--cart side box end-->
-   <section class="w-100 clearfix poultryPerformanceBanner" id="poultryPerformanceBanner"
-      style="background-image: url('images/bg-img1.png');">
-      <div class="container">
-         <div class="row">
-            <div class="col-md-6 col-lg-7">
-            </div>
-            <div class="col-md-6 col-lg-5">
-               <div class="poultryPerformanceHeading">
-                  <h1>POULTRY PERFORMANCE & PRODUCTIVITY CHALLENGES</h1>
-                  <p>We make it a priority to offer flexible services to accommodate
-                     your needs.</p>
-                  <a class="btn btn-1 hover-slide-down" href="javascript:void(0);">
-                     <span>Read More <img src="images/icon/icon-black-right.png" alt="icon" class="img-fluid"></span>
-                  </a>
-               </div>
-            </div>
-         </div>
-      </div>
-   </section>
+        <button class="cg-hero__arrow cg-hero__arrow--prev" id="cgHeroPrev" aria-label="Previous slide"><i class="fa fa-angle-left"></i></button>
+        <button class="cg-hero__arrow cg-hero__arrow--next" id="cgHeroNext" aria-label="Next slide"><i class="fa fa-angle-right"></i></button>
 
-   <section class="w-100 clearfix qualityFeeds" id="qualityFeeds" style="background-image: url('images/bg-img2.png');">
-      <div class="container">
-         <div class="row qualityFeedsRow">
-            <div class="col-md-6 col-xxl-5 qualityFeedsCol qualityFeedsCol1">
-               <div class="commonHeading">
-                  <h4 class="fadein">Quality Feeds Made OnYour Farm</h4>
-                  <p class="fadein">It is a long established fact that a reader will be distracted by the readable
-                     content of a page
-                     when looking at its layout. The point of using Lorem Ipsum.</p>
-                  <p class="fadein">Various versions have evolved over the years, sometimes by accident, sometimes on
-                     purpose (injected
-                     humour and the like).</p>
-               </div>
-               <div class="yearsExperience fadein">
-                  <a href="javascript:void(0);">
-                     <div class="yearsExperienceIcon">
-                        <img src="images/icon/experience.png" alt="icon" class="w-100 img-fluid">
-                     </div>
-                     <div class="yearsExperienceTxt">
-                        <p>We Have 35 Years Experience</p>
-                        <span>Read More <img src="images/icon/icon-right.png" alt="icon" class="img-fluid"></span>
-                     </div>
-                  </a>
-               </div>
+        <div class="cg-hero__dots" id="cgHeroDots">
+            <button class="cg-hero__dot is-active" data-go="0" aria-label="Slide 1"></button>
+            <button class="cg-hero__dot" data-go="1" aria-label="Slide 2"></button>
+            <button class="cg-hero__dot" data-go="2" aria-label="Slide 3"></button>
+            <button class="cg-hero__dot" data-go="3" aria-label="Slide 4"></button>
+            <button class="cg-hero__dot" data-go="4" aria-label="Slide 5"></button>
+        </div>
 
+        <a href="#cgHeroBelow" class="cg-hero__scroll" aria-label="Scroll down">Scroll</a>
+    </section>
+    <span id="cgHeroBelow"></span>
+    <script>
+    (function(){
+        var root = document.getElementById('cgHero');
+        if (!root) return;
+        var slides = root.querySelectorAll('.cg-hero__slide');
+        var dots = root.querySelectorAll('.cg-hero__dot');
+        var idx = 0, total = slides.length, timer;
+        function go(n){
+            idx = (n + total) % total;
+            slides.forEach(function(s,i){ s.classList.toggle('is-active', i === idx); });
+            dots.forEach(function(d,i){ d.classList.toggle('is-active', i === idx); });
+        }
+        function next(){ go(idx + 1); }
+        function prev(){ go(idx - 1); }
+        function restart(){ clearInterval(timer); timer = setInterval(next, 6000); }
+        dots.forEach(function(d){
+            d.addEventListener('click', function(){ go(parseInt(d.dataset.go, 10)); restart(); });
+        });
+        document.getElementById('cgHeroNext').addEventListener('click', function(){ next(); restart(); });
+        document.getElementById('cgHeroPrev').addEventListener('click', function(){ prev(); restart(); });
+        document.addEventListener('keydown', function(e){
+            if (e.key === 'ArrowRight') { next(); restart(); }
+            if (e.key === 'ArrowLeft')  { prev(); restart(); }
+        });
+        restart();
+    })();
+    </script>
+    
+    <!-- STATS STRIP -->
+    <section class="stats-strip">
+        <div class="container">
+            <div class="stats-strip-inner">
+                <div class="stat-item fade-in">
+                    <div class="stat-number">14,000+</div>
+                    <div class="stat-label">Birds</div>
+                </div>
+                <div class="stat-item fade-in">
+                    <div class="stat-number">80L</div>
+                    <div class="stat-label">Milk / Day</div>
+                </div>
+                <div class="stat-item fade-in">
+                    <div class="stat-number">4</div>
+                    <div class="stat-label">Sectors</div>
+                </div>
+                <div class="stat-item fade-in">
+                    <div class="stat-number">1</div>
+                    <div class="stat-label">Mission</div>
+                </div>
             </div>
-            <div class="col-md-6 col-xxl-7 qualityFeedsCol qualityFeedsCol2">
-               <div class="qualityFeedsImg fadein reflectionEffect">
-                  <img src="images/img1.png" alt="img1" class="img-fluid">
-               </div>
+        </div>
+    </section>
+    
+    <!-- FOUR SECTORS -->
+    <section class="section-pad">
+        <div class="container">
+            <p class="section-eyebrow">Our Farm</p>
+            <h2 class="section-title">Four Sectors</h2>
+            <div class="sectors-grid">
+                <div class="sector-card fade-in">
+                    <img src="images/gallary/pexels-chicken-1867521_1920.jpg" alt="Poultry">
+                    <div class="sector-card-overlay">
+                        <span class="sector-card-label">Poultry</span>
+                        <span class="sector-card-promise">Broilers, layers, eggs</span>
+                    </div>
+                </div>
+                <div class="sector-card fade-in">
+                    <img src="images/gallary/jaclou-dl-cow-4270355_1920.jpg" alt="Dairy">
+                    <div class="sector-card-overlay">
+                        <span class="sector-card-label">Dairy</span>
+                        <span class="sector-card-promise">Fresh milk daily</span>
+                    </div>
+                </div>
+                <div class="sector-card fade-in">
+                    <img src="images/gallary/couleur-milk-2474993.jpg" alt="Goats">
+                    <div class="sector-card-overlay">
+                        <span class="sector-card-label">Goats</span>
+                        <span class="sector-card-promise">Boer & Savannah</span>
+                    </div>
+                </div>
+                <div class="sector-card fade-in">
+                    <img src="images/gallary/engin_akyurt-egg-6757508_1920.jpg" alt="Crops">
+                    <div class="sector-card-overlay">
+                        <span class="sector-card-label">Crops</span>
+                        <span class="sector-card-promise">Coffee, bananas, maize</span>
+                    </div>
+                </div>
             </div>
-         </div>
-      </div>
-   </section>
-   <section class="w-100 clearfix diversifiedBusinesses" id="diversifiedBusinesses">
-      <div class="diverBusinessesGrid">
-         <div class="diverBusinessesGridCol">
-            <div class="diverBusinessesInnerGrid">
-               <div class="diverBusinessesInnerGridCol content fadein">
-                  <div class="content-overlay"></div>
-                  <img src="images/img2.png" alt="img1" class="w-100 img-fluid">
-                  <div class="content-details fadeIn-top">
-                     <h3>Poultry Feed</h3>
-                  </div>
-               </div>
-               <div class="diverBusinessesInnerGridCol content fadein">
-                  <div class="content-overlay"></div>
-                  <img src="images/img3.png" alt="img1" class="w-100 img-fluid">
-                  <div class="content-details fadeIn-top">
-                     <h3>Poultry Feed</h3>
-                  </div>
-               </div>
+        </div>
+    </section>
+    
+    <!-- WHAT WE DO -->
+    <section class="pillars-row">
+        <div class="container">
+            <p class="section-eyebrow">What We Do</p>
+            <h2 class="section-title">Produce · Train · Partner</h2>
+            <div class="pillars-grid">
+                <div class="pillar-item fade-in">
+                    <div class="pillar-icon"><i class="fa fa-leaf"></i></div>
+                    <h3 class="pillar-title">Produce</h3>
+                    <p class="pillar-desc">Farm-fresh eggs, chicks, broiler meat, fresh milk, and premium goats. Direct from the farm, priced in UGX.</p>
+                </div>
+                <div class="pillar-item fade-in">
+                    <div class="pillar-icon"><i class="fa fa-graduation-cap"></i></div>
+                    <h3 class="pillar-title">Train</h3>
+                    <p class="pillar-desc">Hands-on farming training, youth empowerment programs, and industrial placements for agriculture students.</p>
+                </div>
+                <div class="pillar-item fade-in">
+                    <div class="pillar-icon"><i class="fa fa-users"></i></div>
+                    <h3 class="pillar-title">Partner</h3>
+                    <p class="pillar-desc">Join us in scaling from 14,000 to 100,000 birds. Farm tours, school visits, and investor partnerships.</p>
+                </div>
             </div>
-            <div class="diverBusinessesSingleImg content fadein">
-               <div class="content-overlay"></div>
-               <img src="images/img4.png" alt="img1" class="w-100 img-fluid">
-               <div class="content-details fadeIn-top">
-                  <h3>Poultry Feed</h3>
-               </div>
+        </div>
+    </section>
+    
+    <!-- FEATURED PRODUCTS -->
+    <section class="products-section">
+        <div class="container">
+            <p class="section-eyebrow">Shop</p>
+            <h2 class="section-title">Featured Products</h2>
+            <div class="products-grid">
+                <div class="product-card fade-in">
+                    <div class="product-card-img">
+                        <img src="images/gallary/engin_akyurt-egg-6757508_1920.jpg" alt="Eggs">
+                    </div>
+                    <div class="product-card-body">
+                        <h4 class="product-card-name">Farm Fresh Eggs</h4>
+                        <div class="product-card-price">UGX 12,000 / tray</div>
+                        <a href="shop.html" class="product-card-btn">Enquire</a>
+                    </div>
+                </div>
+                <div class="product-card fade-in">
+                    <div class="product-card-img">
+                        <img src="images/gallary/stevepb-nest-1050964_1920.jpg" alt="Chicks">
+                    </div>
+                    <div class="product-card-body">
+                        <h4 class="product-card-name">1-Month Chicks</h4>
+                        <div class="product-card-price">UGX 10,000</div>
+                        <a href="shop.html" class="product-card-btn">Enquire</a>
+                    </div>
+                </div>
+                <div class="product-card fade-in">
+                    <div class="product-card-img">
+                        <img src="images/gallary/couleur-milk-2474993.jpg" alt="Milk">
+                    </div>
+                    <div class="product-card-body">
+                        <h4 class="product-card-name">Fresh Milk</h4>
+                        <div class="product-card-price">UGX 2,500 / litre</div>
+                        <a href="shop.html" class="product-card-btn">Enquire</a>
+                    </div>
+                </div>
+                <div class="product-card fade-in">
+                    <div class="product-card-img">
+                        <img src="images/gallary/andreasgoellner-hen-5642953_1920.jpg" alt="Goat">
+                    </div>
+                    <div class="product-card-body">
+                        <h4 class="product-card-name">Boer Goat</h4>
+                        <div class="product-card-price">From UGX 600,000</div>
+                        <a href="shop.html" class="product-card-btn">Enquire</a>
+                    </div>
+                </div>
             </div>
-         </div>
-         <div class="diverBusinessesGridCol">
-            <div class="diverBusinessesContent fadein">
-               <div class="commonHeading">
-                  <h4 class="fadein">Diversified Businesses</h4>
-                  <p class="fadein">It is a long established fact that a reader will be distracted by the readable
-                     content of a page
-                     when looking at its layout. The point of using Lorem Ipsum</p>
-               </div>
-               <div class="diverBusinessesList">
-                  <ul class="nav flex-column">
-                     <li class="nav-item fadein">
-                        <a class="nav-link" href="#">Alternative Eggs</a>
-                     </li>
-                     <li class="nav-item fadein">
-                        <a class="nav-link" href="#">Poultry Cages</a>
-                     </li>
-                     <li class="nav-item fadein">
-                        <a class="nav-link" href="#">Breeder Management</a>
-                     </li>
-                     <li class="nav-item fadein">
-                        <a class="nav-link" href="#">Poultry Climate</a>
-                     </li>
-                     <li class="nav-item fadein">
-                        <a class="nav-link" href="#">Residue Treatment</a>
-                     </li>
-                     <li class="nav-item fadein">
-                        <a class="nav-link" href="#">Exhaust air Treatment </a>
-                     </li>
-                  </ul>
-               </div>
+        </div>
+    </section>
+    
+    <!-- VISIT CTA BAND -->
+    <section class="cta-band">
+        <div class="container">
+            <p class="cta-band-text">Come see the farm in Amuca, Lira City</p>
+            <a href="contact-us.html" class="modern-btn">Plan Your Visit</a>
+        </div>
+    </section>
+    
+    <!-- BLOG SECTION -->
+    <section class="blog-section">
+        <div class="container">
+            <p class="section-eyebrow">Blog</p>
+            <h2 class="section-title">From the Farm</h2>
+            <div class="blog-grid">
+                <article class="blog-card fade-in">
+                    <div class="blog-card-img">
+                        <img src="images/gallary/rooster-farm.jpg" alt="Blog">
+                    </div>
+                    <div class="blog-card-body">
+                        <p class="blog-card-date">March 25, 2026</p>
+                        <h3 class="blog-card-title">Scaling From 14,000 to 100,000 Birds</h3>
+                    </div>
+                </article>
+                <article class="blog-card fade-in">
+                    <div class="blog-card-img">
+                        <img src="images/gallary/jaclou-dl-cow-4270355_1920.jpg" alt="Blog">
+                    </div>
+                    <div class="blog-card-body">
+                        <p class="blog-card-date">March 18, 2026</p>
+                        <h3 class="blog-card-title">Why Boer Goats Pay Off</h3>
+                    </div>
+                </article>
+                <article class="blog-card fade-in">
+                    <div class="blog-card-img">
+                        <img src="images/gallary/couleur-milk-2474993.jpg" alt="Blog">
+                    </div>
+                    <div class="blog-card-body">
+                        <p class="blog-card-date">March 10, 2026</p>
+                        <h3 class="blog-card-title">Dairy Ration Planning for 80+ Litres</h3>
+                    </div>
+                </article>
             </div>
-            <div class="diverBusinessesInnerGrid">
-               <div class="diverBusinessesInnerGridCol content fadein">
-                  <div class="content-overlay"></div>
-                  <img src="images/img2.png" alt="img1" class="w-100 img-fluid">
-                  <div class="content-details fadeIn-top">
-                     <h3>Poultry Feed</h3>
-                  </div>
-               </div>
-               <div class="diverBusinessesInnerGridCol content fadein">
-                  <div class="content-overlay"></div>
-                  <img src="images/img3.png" alt="img1" class="w-100 img-fluid">
-                  <div class="content-details fadeIn-top">
-                     <h3>Poultry Feed</h3>
-                  </div>
-               </div>
+        </div>
+    </section>
+    
+    <!-- NEWSLETTER -->
+    <section class="newsletter-section">
+        <div class="container">
+            <div class="newsletter-inner">
+                <div class="newsletter-text">
+                    <h3>Stay Connected</h3>
+                    <p>Updates on products, training, and farm visits.</p>
+                </div>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Your email address">
+                    <button type="submit">Subscribe</button>
+                </form>
             </div>
-         </div>
-      </div>
-   </section>
-   <section class="w-100 clearfix poultryProductsSlider" id="poultryProductsSlider">
-      <div class="container">
-         <div class="poultryProductsHead">
-            <div class="commonHeading">
-               <h4 class="fadein">Poultry Products</h4>
-               <p class="fadein">It is a long established fact that a reader will be distracted by the readable content
-                  of a page when
-                  looking at its layout. The point of using Lorem Ipsum</p>
-            </div>
-            <div class="owlNavBtn fadein">
-               <div class="btn-wrap">
-                  <button class="prev-btn"><img src="images/icon/icon-left.png" alt="left" class="img-fluid"></button>
-                  <button class="next-btn"><img src="images/icon/icon-right.png" alt="right" class="img-fluid"></button>
-               </div>
-            </div>
-         </div>
-         <div class="owl-carousel owl-theme owlCarouselProducts">
-            <div class="item">
-               <div class="owlSlideItem fadein">
+        </div>
+</section>
+
+    <!-- footer start
                   <div class="owlSlideImg circleEffect">
                      <div class="owlSlideItemImg">
                         <div class="sliderIconMenu">
@@ -574,11 +1299,11 @@
                   <div class="owlSlideItemContent">
                       <a href="shop-single.html">
                      <div class="owlProductHeading">
-                        <h4>White & Brown Eggs</h4>
+                        <h4>Farm Fresh Eggs (Tray)</h4>
                      </div>
                      </a>
                      <div class="productPrice">
-                        <ins>$40</ins> <del>$60</del>
+                        <a href="shop.html" class="shopLink">View in Shop</a>
                      </div>
                      <div class="ratingStar">
                         <i class="fa fa-star fill" aria-hidden="true"></i>
@@ -614,11 +1339,11 @@
                   <div class="owlSlideItemContent">
                      <a href="shop-single.html">
                      <div class="owlProductHeading">
-                        <h4>Little Chicks</h4>
+                        <h4>1-Month Chicks</h4>
                      </div>
                      </a>
                      <div class="productPrice">
-                        <ins>$40</ins> <del>$60</del>
+                        <a href="shop.html" class="shopLink">View in Shop</a>
                      </div>
                      <div class="ratingStar">
                         <i class="fa fa-star fill" aria-hidden="true"></i>
@@ -654,11 +1379,11 @@
                   <div class="owlSlideItemContent">
                      <a href="shop-single.html">
                      <div class="owlProductHeading">
-                        <h4>Bovans Browns</h4>
+                        <h4>Layer Hens</h4>
                      </div>
                      </a>
                      <div class="productPrice">
-                        <ins>$40</ins> <del>$60</del>
+                        <a href="shop.html" class="shopLink">View in Shop</a>
                      </div>
                      <div class="ratingStar">
                         <i class="fa fa-star fill" aria-hidden="true"></i>
@@ -693,11 +1418,11 @@
                   <div class="owlSlideItemContent">
                      <a href="shop-single.html">
                      <div class="owlProductHeading">
-                        <h4>Chicken Broiler</h4>
+                        <h4>Broiler Chicken</h4>
                      </div>
                      </a>
                      <div class="productPrice">
-                        <ins>$40</ins> <del>$60</del>
+                        <a href="shop.html" class="shopLink">View in Shop</a>
                      </div>
                      <div class="ratingStar">
                         <i class="fa fa-star fill" aria-hidden="true"></i>
@@ -733,11 +1458,11 @@
                   <div class="owlSlideItemContent">
                      <a href="shop-single.html">
                      <div class="owlProductHeading">
-                        <h4>White & Brown Eggs</h4>
+                        <h4>Farm Fresh Eggs (Tray)</h4>
                      </div>
                      </a>
                      <div class="productPrice">
-                        <ins>$40</ins> <del>$60</del>
+                        <a href="shop.html" class="shopLink">View in Shop</a>
                      </div>
                      <div class="ratingStar">
                         <i class="fa fa-star fill" aria-hidden="true"></i>
@@ -773,11 +1498,11 @@
                   <div class="owlSlideItemContent">
                      <a href="shop-single.html">
                      <div class="owlProductHeading">
-                        <h4>Little Chicks</h4>
+                        <h4>1-Month Chicks</h4>
                      </div>
                      </a>
                      <div class="productPrice">
-                        <ins>$40</ins> <del>$60</del>
+                        <a href="shop.html" class="shopLink">View in Shop</a>
                      </div>
                      <div class="ratingStar">
                         <i class="fa fa-star fill" aria-hidden="true"></i>
@@ -814,11 +1539,11 @@
                   <div class="owlSlideItemContent">
                      <a href="shop-single.html">
                      <div class="owlProductHeading">
-                        <h4>Bovans Browns</h4>
+                        <h4>Layer Hens</h4>
                      </div>
                      </a>
                      <div class="productPrice">
-                        <ins>$40</ins> <del>$60</del>
+                        <a href="shop.html" class="shopLink">View in Shop</a>
                      </div>
                      <div class="ratingStar">
                         <i class="fa fa-star fill" aria-hidden="true"></i>
@@ -853,11 +1578,11 @@
                   <div class="owlSlideItemContent">
                      <a href="shop-single.html">
                      <div class="owlProductHeading">
-                        <h4>Chicken Broiler</h4>
+                        <h4>Broiler Chicken</h4>
                      </div>
                      </a>
                      <div class="productPrice">
-                        <ins>$40</ins> <del>$60</del>
+                        <a href="shop.html" class="shopLink">View in Shop</a>
                      </div>
                      <div class="ratingStar">
                         <i class="fa fa-star fill" aria-hidden="true"></i>
@@ -876,71 +1601,71 @@
             </a>
          </div>
       </div>
-   </section>
+   </section> -->
    <section class="w-100 clearfix categorySec" id="categorySec">
       <div class="container">
          <div class="categorySecInner fadein">
             <div class="row">
-               <div class="col-sm-6 col-lg-3">
-                  <a href="javascript:void(0);">
-                     <div class="categorySecItem">
-                        <div class="categoryIcon">
-                           <span>
-                              <img src="images/icon1.png" alt="icon" class="img-fluid">
-                           </span>
-                        </div>
-                        <div class="categoryContent">
-                           <h5>Healthy Chicken</h5>
-                           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        </div>
-                     </div>
-                  </a>
-               </div>
-               <div class="col-sm-6 col-lg-3">
-                  <a href="javascript:void(0);">
-                     <div class="categorySecItem">
-                        <div class="categoryIcon">
-                           <span>
-                              <img src="images/icon2.png" alt="icon" class="img-fluid">
-                           </span>
-                        </div>
-                        <div class="categoryContent">
-                           <h5>Hygienic Coop</h5>
-                           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        </div>
-                     </div>
-                  </a>
-               </div>
-               <div class="col-sm-6 col-lg-3">
-                  <a href="javascript:void(0);">
-                     <div class="categorySecItem">
-                        <div class="categoryIcon">
-                           <span>
-                              <img src="images/icon3.png" alt="icon" class="img-fluid">
-                           </span>
-                        </div>
-                        <div class="categoryContent">
-                           <h5>Fresh Eggs</h5>
-                           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        </div>
-                     </div>
-                  </a>
-               </div>
-               <div class="col-sm-6 col-lg-3">
-                  <a href="javascript:void(0);">
-                     <div class="categorySecItem">
-                        <div class="categoryIcon">
-                           <span>
-                              <img src="images/icon4.png" alt="icon" class="img-fluid">
-                           </span>
-                        </div>
-                        <div class="categoryContent">
-                           <h5>Organic Fodder</h5>
-                           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        </div>
-                     </div>
-                  </a>
-               </div>
+<div class="col-sm-6 col-lg-3">
+                   <a href="javascript:void(0);">
+                      <div class="categorySecItem">
+                         <div class="categoryIcon">
+                            <span>
+                               <img src="images/icon1.png" alt="icon" class="img-fluid">
+                            </span>
+                         </div>
+<div class="categoryContent">
+                             <h5>Poultry Farming</h5>
+                             <p>14,000+ chickens including broilers, layers, and dual-purpose breeds.</p>
+                          </div>
+                       </div>
+                    </a>
+                 </div>
+                 <div class="col-sm-6 col-lg-3">
+                    <a href="javascript:void(0);">
+                       <div class="categorySecItem">
+                          <div class="categoryIcon">
+                             <span>
+                                <img src="images/icon2.png" alt="icon" class="img-fluid">
+                             </span>
+                          </div>
+                          <div class="categoryContent">
+                             <h5>Dairy Production</h5>
+                             <p>Fresh milk daily with ~80 litres production.</p>
+                          </div>
+                       </div>
+                    </a>
+                 </div>
+                 <div class="col-sm-6 col-lg-3">
+                    <a href="javascript:void(0);">
+                       <div class="categorySecItem">
+                          <div class="categoryIcon">
+                             <span>
+                                <img src="images/icon3.png" alt="icon" class="img-fluid">
+                             </span>
+                          </div>
+                          <div class="categoryContent">
+                             <h5>Goat Farming</h5>
+                             <p>Premium Boer and Savannah goats raised in controlled environments.</p>
+                          </div>
+                       </div>
+                    </a>
+                 </div>
+                 <div class="col-sm-6 col-lg-3">
+                    <a href="javascript:void(0);">
+                       <div class="categorySecItem">
+                          <div class="categoryIcon">
+                             <span>
+                                <img src="images/icon4.png" alt="icon" class="img-fluid">
+                             </span>
+                          </div>
+                          <div class="categoryContent">
+                             <h5>Training Programs</h5>
+                             <p>Youth empowerment and practical farming skills training.</p>
+                          </div>
+                       </div>
+                    </a>
+                 </div>
             </div>
          </div>
       </div>
@@ -949,10 +1674,8 @@
       <div class="container">
          <div class="poultryProductsHead">
             <div class="commonHeading">
-               <h4 class="fadein">Related Products</h4>
-               <p class="fadein">It is a long established fact that a reader will be distracted by the readable content
-                  of a page when
-                  looking at its layout. The point of using Lorem Ipsum</p>
+               <h4 class="fadein">Training & Value-Added Services</h4>
+               <p class="fadein">Beyond livestock and crops, City Gate Mixed Farm delivers agricultural training, farm tours, youth empowerment programs, internships, and agribusiness mentorship across Northern Uganda.</p>
             </div>
             <div class="owlNavBtn fadein">
                <div class="btn-wrap">
@@ -969,14 +1692,13 @@
                   </div>
                   <div class="owlSlideItemContent">
                      <div class="owlProductHeading">
-                        <h4>ACTIGEN®</h4>
+                        <h4>Farm Visits & Tours</h4>
                      </div>
                      <div class="owlProductPara">
-                        <p>Actigen provides a cost-effective means of maintaining gut health and integrity to support
-                           overall performance.</p>
+                        <p>Guided walk-through of our poultry, goat, dairy and crop units. Ideal for schools, groups and aspiring farmers.</p>
                      </div>
                      <div class="relatedProductsBtn">
-                        <a href="actigen.html" class="readMoreBtn">Read More <img
+                        <a href="our-service.html" class="readMoreBtn">Read More <img
                               src="images/icon/arrow-right.png" alt="right" class="img-fluid"></a>
                      </div>
                   </div>
@@ -989,14 +1711,13 @@
                   </div>
                   <div class="owlSlideItemContent">
                      <div class="owlProductHeading">
-                        <h4>BIOPLEX®</h4>
+                        <h4>Training & Internships</h4>
                      </div>
                      <div class="owlProductPara">
-                        <p>Bioplex offers a range of trace minerals that provide mineral nutrition in a form as close to
-                           nature as possible.</p>
+                        <p>Hands-on agricultural training, youth empowerment programs, and industrial-training placements for students.</p>
                      </div>
                      <div class="relatedProductsBtn">
-                        <a href="javascript:void(0);" class="readMoreBtn">Read More <img
+                        <a href="our-service.html" class="readMoreBtn">Read More <img
                               src="images/icon/arrow-right.png" alt="right" class="img-fluid"></a>
                      </div>
                   </div>
@@ -1029,14 +1750,13 @@
                   </div>
                   <div class="owlSlideItemContent">
                      <div class="owlProductHeading">
-                        <h4>BIOPLEX®</h4>
+                        <h4>Training & Internships</h4>
                      </div>
                      <div class="owlProductPara">
-                        <p>Bioplex offers a range of trace minerals that provide mineral nutrition in a form as close to
-                           nature as possible.</p>
+                        <p>Hands-on agricultural training, youth empowerment programs, and industrial-training placements for students.</p>
                      </div>
                      <div class="relatedProductsBtn">
-                        <a href="javascript:void(0);" class="readMoreBtn">Read More <img
+                        <a href="our-service.html" class="readMoreBtn">Read More <img
                               src="images/icon/arrow-right.png" alt="right" class="img-fluid"></a>
                      </div>
                   </div>
@@ -1052,10 +1772,10 @@
                <img src="images/icon5.png" alt="icon" class="img-fluid">
             </div>
             <div class="commonHeading">
-               <h4 class="fadein">Layer Breeders</h4>
-               <p class="fadein">The Hy-Line W-80 India & The Hy-Line Brown are robust and persistent egg layers ideally suited for the consumer market.</p>
+               <h4 class="fadein">Goat Farming</h4>
+               <p class="fadein">Premium Boer and Savannah (white) goats raised on-farm. Sold at 8 months from UGX 600,000+. Cross-breeding services available for smallholder farmers.</p>
             </div>
-            <a class="btn btn-1 hover-slide-down fadein" href="layer-breeders.html">
+            <a class="btn btn-1 hover-slide-down fadein" href="broiler-breeder.html">
                <span>Read More <img src="images/icon/icon-black-right.png" alt="icon" class="img-fluid"></span>
             </a>
          </div>
@@ -1064,10 +1784,10 @@
                <img src="images/icon6.png" alt="icon" class="img-fluid">
             </div>
             <div class="commonHeading">
-               <h4 class="fadein">Broiler Breeders</h4>
-               <p class="fadein">The Ross AP95 is a fast growing bird and feed efficient broiler with good meat yield.</p>
+               <h4 class="fadein">Dairy Production</h4>
+               <p class="fadein">Our dairy herd produces ~80 litres of fresh milk daily. Bulk supply available for households, cafés and retailers across Lira City.</p>
             </div>
-            <a class="btn btn-1 hover-slide-down fadein" href="broiler-breeder.html">
+            <a class="btn btn-1 hover-slide-down fadein" href="layer-breeders.html">
                <span>Read More <img src="images/icon/icon-black-right.png" alt="icon" class="img-fluid"></span>
             </a>
          </div>
@@ -1082,18 +1802,16 @@
                      <div class="commonHeading">
                         <h4 class="fadein">You've got questions, we've
                            got answers.</h4>
-                        <p class="fadein">It is a long established fact that a reader will be distracted by the readable
-                           content of a
-                           page when looking at its layout. The point of using Lorem Ipsum</p>
+                        <p class="fadein">Thinking about visiting the farm, buying livestock, or joining a training program? Our FAQ covers visits, training fees, bulk orders, internships and partnerships.</p>
                      </div>
-                     <a class="btnCustom2 btn-1 hover-slide-down fadein" href="javascript:void(0);">
-                        <span>View All Videos <img src="images/icon/icon-right.png" alt="right"
+                     <a class="btnCustom2 btn-1 hover-slide-down fadein" href="faq.html">
+                        <span>View FAQs <img src="images/icon/icon-right.png" alt="right"
                               class="img-fluid"></span>
                      </a>
                   </div>
-                  <div class="gotQuestionsVideo">
-                     <div class="videoBanner fadein">
-                        <img src="images/img11.png" alt="banner" class="w-100 img-fluid">
+                   <div class="gotQuestionsVideo">
+                      <div class="videoBanner fadein">
+                         <img src="images/gallary/jaclou-dl-cow-4270355_1920.jpg" alt="banner" class="w-100 img-fluid">
                         <a href="javascript:void(0)" class="flVideo youtube-link" youtubeid="ZrGzRmcIFcU">
                            <div class="circle pulse orange">
                               <img src="images/icon/play.png" alt="banner" class="img-fluid">
@@ -1104,9 +1822,9 @@
                </div>
             </div>
             <div class="gotQuestionsCol">
-               <div class="gotQuestions">
-                  <div class="videoBanner fadein">
-                     <img src="images/img12.png" alt="banner" class="w-100 img-fluid">
+                <div class="gotQuestions">
+                   <div class="videoBanner fadein">
+                      <img src="images/gallary/couleur-milk-2474993.jpg" alt="banner" class="w-100 img-fluid">
                      <a href="javascript:void(0)" class="flVideo youtube-link" youtubeid="ZrGzRmcIFcU">
                         <div class="circle pulse orange">
                            <img src="images/icon/play.png" alt="banner" class="img-fluid">
@@ -1114,8 +1832,7 @@
                      </a>
                   </div>
                   <div class="gotQuesPara fadein">
-                     <p>Curabitur gravida arcu ac tortor. Non consectetur a erat nam at. Facilisis magna etiam tempor
-                        orci eu lobortis elementum nibh tellus. Sollicitudin aliquam ultrices sagittis.</p>
+                     <p>Watch short videos from City Gate Mixed Farm — daily operations, feeding routines, milk collection, goat care, and coffee harvesting at our 4-hectare model farm in Amuca, Lira City.</p>
                   </div>
                </div>
             </div>
@@ -1124,41 +1841,39 @@
    </section>
    <section class="w-100 clearfix galleryPoultryFarm" id="galleryPoultryFarm">
       <div class="commonHeading text-center">
-         <h4 class="fadein">Gallery Of Our Poultry Farm</h4>
-         <p class="fadein">It is a long established fact that a reader will be distracted by the readable content of a
-            page when
-            looking at its layout. The point of using Lorem Ipsum</p>
+         <h4 class="fadein">Life at City Gate Mixed Farm</h4>
+         <p class="fadein">A glimpse of daily activity — poultry houses, goat pens, dairy milking, coffee and banana plots, and training sessions with visiting farmers and students.</p>
       </div>
       <div class="galleryPoultrySec">
          <div class="owl-carousel owl-theme carouselGalleryPoultry">
             <div class="item">
                <div class="galleryItem fadein">
-                  <img src="images/img13.png" alt="gallery" class="img-fluid">
+                  <img src="images/gallary/rooster-farm.jpg" alt="gallery" class="img-fluid">
                </div>
             </div>
             <div class="item">
                <div class="galleryItem fadein">
-                  <img src="images/img14.png" alt="gallery" class="img-fluid">
+                  <img src="images/gallary/jaclou-dl-cow-4270355_1920.jpg" alt="gallery" class="img-fluid">
                </div>
             </div>
             <div class="item">
                <div class="galleryItem fadein">
-                  <img src="images/img15.png" alt="gallery" class="img-fluid">
+                  <img src="images/gallary/couleur-milk-2474993.jpg" alt="gallery" class="img-fluid">
                </div>
             </div>
             <div class="item">
                <div class="galleryItem fadein">
-                  <img src="images/img13.png" alt="gallery" class="img-fluid">
+                  <img src="images/gallary/engin_akyurt-egg-6757508_1920.jpg" alt="gallery" class="img-fluid">
                </div>
             </div>
             <div class="item">
                <div class="galleryItem fadein">
-                  <img src="images/img14.png" alt="gallery" class="img-fluid">
+                  <img src="images/gallary/stevepb-nest-1050964_1920.jpg" alt="gallery" class="img-fluid">
                </div>
             </div>
             <div class="item">
                <div class="galleryItem fadein">
-                  <img src="images/img15.png" alt="gallery" class="img-fluid">
+                  <img src="images/gallary/akirevarga-egg-7345934.jpg" alt="gallery" class="img-fluid">
                </div>
             </div>
          </div>
@@ -1180,27 +1895,24 @@
                <div class="tab-content">
                   <div class="tab-pane active" id="slide1">
                      <div class="testimonialSliderItem fadein">
-                        <p>Continually productize compelling quality for packed with Elated productize compelling
-                           quality for packed with all Elated Theme Setting up to website and creating pages.
-                           Continually productize compelling quality for packed with Elated productize compelling
-                           quality for packed with all Elated Theme Setting up to website and creating pages.</p>
-                        <h4>Mathew E. Sanborn</h4>
-                        <span>Customer</span>
+                        <p>City Gate Mixed Farm changed how I think about farming. I came as a visitor, stayed for the training, and I am now running my own poultry unit back home. The practical sessions on feeding and biosecurity were the most useful.</p>
+                        <h4>Okello Dennis</h4>
+                        <span>Smallholder Farmer, Lira</span>
                      </div>
                   </div>
                   <div class="tab-pane fade" id="slide2">
                      <div class="testimonialSliderItem fadein">
-                        <p>Curabitur gravida arcu ac tortor. Non consectetur a erat nam at. Facilisis magna etiam tempor orci eu lobortis elementum nibh tellus. Sollicitudin aliquam ultrices sagittis.</p>
-                        <h4>Sandra G. Eiland</h4>
-                        <span>Customer</span>
+                        <p>We buy 1-month chicks and fresh milk from City Gate every week. The chicks survive and grow well, and the milk is always fresh. Reliable farm, reliable quality.</p>
+                        <h4>Akello Grace</h4>
+                        <span>Retailer, Lira City</span>
                      </div>
                   </div>
 
                   <div class="tab-pane fade" id="slide3">
                      <div class="testimonialSliderItem fadein">
-                        <p>This can be done with one simple click, and with your own specified preferences for the amount of paragraphs, sentences, words and much more. You also have the ability to enter lists, dummy email addresses and even random dummy images with custom dimensions.</p>
-                        <h4>Julia Ribeiro Melo</h4>
-                        <span>Customer</span>
+                        <p>My industrial training placement at City Gate Mixed Farm gave me exposure to real livestock and crop operations — poultry, goats, dairy, and pasture management. The mentorship was excellent.</p>
+                        <h4>Achan Mercy</h4>
+                        <span>Agriculture Student, Gulu University</span>
                      </div>
                   </div>
                </div>
@@ -1233,18 +1945,16 @@
       <div class="container">
          <div class="latestNewsArticlesInner">
             <div class="commonHeading">
-               <h4 class="fadein">Latest News & Articles</h4>
-               <p class="fadein">It is a long established fact that a reader will be distracted by the readable content
-                  of a page when
-                  looking at its layout. The point of using Lorem Ipsum</p>
+               <h4 class="fadein">From the Farm Blog</h4>
+               <p class="fadein">Tips, lessons and updates from City Gate Mixed Farm — practical advice for poultry, dairy, goats and crops drawn from our daily operations in Amuca, Lira City.</p>
             </div>
             <div class="latestNewsCard">
                <div class="row">
                   <div class="col-md-12 col-lg-4">
-                     <div class="latestNewsCardInner fadein">
-                        <div class="latestNewsCardImg">
-                           <a href="blog-single.html"><img src="images/img22.png" alt="img"
-                                 class="w-100 img-fluid"></a>
+                      <div class="latestNewsCardInner fadein">
+                         <div class="latestNewsCardImg">
+                            <a href="blog-single.html"><img src="images/gallary/rooster-farm.jpg" alt="img"
+                                  class="w-100 img-fluid"></a>
                            <div class="latestNewsDate">
                               <a href="javascript:void(0);">
                                  <h5>25</h5>
@@ -1267,8 +1977,8 @@
                               </div>
                            </div>
                            <div class="latestNewsTxt">
-                              <h4><a href="blog-single.html">Omega-3 chicken, egg may lower heart attack</a></h4>
-                              <p>Synergen is a product of the solid state fermentation of Aspergillus niger.</p>
+                              <h4><a href="blog-single.html">Scaling From 14,000 to 100,000 Birds — Our Plan</a></h4>
+                              <p>How City Gate is expanding poultry production while keeping biosecurity and bird welfare at the centre.</p>
                            </div>
                            <div class="latestNewBtn">
                               <a class="btnCustom5 btn-1 hover-slide-down" href="blog-single.html">
@@ -1280,10 +1990,10 @@
                      </div>
                   </div>
                   <div class="col-md-12 col-lg-4">
-                     <div class="latestNewsCardInner fadein">
-                        <div class="latestNewsCardImg">
-                           <a href="blog-single.html;"><img src="images/img102.png" alt="img"
-                                 class="w-100 img-fluid"></a>
+                      <div class="latestNewsCardInner fadein">
+                         <div class="latestNewsCardImg">
+                            <a href="blog-single.html;"><img src="images/gallary/engin_akyurt-egg-6757508_1920.jpg" alt="img"
+                                  class="w-100 img-fluid"></a>
                            <div class="latestNewsDate">
                               <a href="javascript:void(0);">
                                  <h5>25</h5>
@@ -1306,8 +2016,8 @@
                               </div>
                            </div>
                            <div class="latestNewsTxt">
-                              <h4><a href="blog-single.html">Because Progenies Are Better</a></h4>
-                              <p>Synergen is a product of the solid state fermentation of Aspergillus niger.</p>
+                              <h4><a href="blog-single.html">Boer Goats: Why Cross-Breeding Pays Off</a></h4>
+                              <p>A practical look at how crossing Boer and local breeds improves weight gain, milk and market value.</p>
                            </div>
                            <div class="latestNewBtn">
                               <a class="btnCustom5 btn-1 hover-slide-down" href="blog-single.html">
@@ -1319,10 +2029,10 @@
                      </div>
                   </div>
                   <div class="col-md-12 col-lg-4">
-                     <div class="latestNewsCardInner fadein">
-                        <div class="latestNewsCardImg">
-                           <a href="blog-single.html"><img src="images/img103.png" alt="img"
-                                 class="w-100 img-fluid"></a>
+                      <div class="latestNewsCardInner fadein">
+                         <div class="latestNewsCardImg">
+                            <a href="blog-single.html"><img src="images/gallary/jaclou-dl-cow-4270355_1920.jpg" alt="img"
+                                  class="w-100 img-fluid"></a>
                            <div class="latestNewsDate">
                               <a href="javascript:void(0);">
                                  <h5>25</h5>
@@ -1345,8 +2055,8 @@
                               </div>
                            </div>
                            <div class="latestNewsTxt">
-                              <h4><a href="blog-single.html">Synergen chicken, egg may lower heart attack</a></h4>
-                              <p>Synergen is a product of the solid state fermentation of Aspergillus niger.</p>
+                              <h4><a href="blog-single.html">Feeding Your Dairy Herd for 80+ Litres a Day</a></h4>
+                              <p>Our daily ration plan — pasture, silage and supplements — for consistent milk production on a mixed farm.</p>
                            </div>
                            <div class="latestNewBtn">
                               <a class="btnCustom5 btn-1 hover-slide-down" href="blog-single.html">
@@ -1379,8 +2089,8 @@
                         <img src="images/icon/location.png" alt="location-icon" class="img-fluid">
                      </div>
                      <div class="locationTxt">
-                        <p>3923 Hawks Nest LaneSaint
-                           Louis, MO 63101</p>
+                        <p>3923 City Gate Mixed Farm, Amuca,
+                           Lira City, Uganda</p>
                      </div>
                   </div>
                </div>
@@ -1391,8 +2101,8 @@
                         <img src="images/icon/location.png" alt="location-icon" class="img-fluid">
                      </div>
                      <div class="locationTxt">
-                        <p>3924 Hawks Nest LaneSaint
-                           Louis, MO 63101</p>
+                        <p>3924 City Gate Mixed Farm, Amuca,
+                           Lira City, Uganda</p>
                      </div>
                   </div>
                </div>
@@ -1404,8 +2114,8 @@
                         <img src="images/icon/location.png" alt="location-icon" class="img-fluid">
                      </div>
                      <div class="locationTxt">
-                        <p>3925 Hawks Nest LaneSaint
-                           Louis, MO 63101</p>
+                        <p>3925 City Gate Mixed Farm, Amuca,
+                           Lira City, Uganda</p>
                      </div>
                   </div>
                </div>
@@ -1417,8 +2127,8 @@
                         <img src="images/icon/location.png" alt="location-icon" class="img-fluid">
                      </div>
                      <div class="locationTxt">
-                        <p>3926 Hawks Nest LaneSaint
-                           Louis, MO 63101</p>
+                        <p>3926 City Gate Mixed Farm, Amuca,
+                           Lira City, Uganda</p>
                      </div>
                   </div>
                </div>
@@ -1428,8 +2138,8 @@
                         <img src="images/icon/location.png" alt="location-icon" class="img-fluid">
                      </div>
                      <div class="locationTxt">
-                        <p>3927 Hawks Nest LaneSaint
-                           Louis, MO 63101</p>
+                        <p>3927 City Gate Mixed Farm, Amuca,
+                           Lira City, Uganda</p>
                      </div>
                   </div>
                </div>
@@ -1439,8 +2149,8 @@
                         <img src="images/icon/location.png" alt="location-icon" class="img-fluid">
                      </div>
                      <div class="locationTxt">
-                        <p>3928 Hawks Nest LaneSaint
-                           Louis, MO 63101</p>
+                        <p>3928 City Gate Mixed Farm, Amuca,
+                           Lira City, Uganda</p>
                      </div>
                   </div>
                </div>
@@ -1450,8 +2160,8 @@
                         <img src="images/icon/location.png" alt="location-icon" class="img-fluid">
                      </div>
                      <div class="locationTxt">
-                        <p>3929 Hawks Nest LaneSaint
-                           Louis, MO 63101</p>
+                        <p>3929 City Gate Mixed Farm, Amuca,
+                           Lira City, Uganda</p>
                      </div>
                   </div>
                </div>
@@ -1461,8 +2171,8 @@
                         <img src="images/icon/location.png" alt="location-icon" class="img-fluid">
                      </div>
                      <div class="locationTxt">
-                        <p>3930 Hawks Nest LaneSaint
-                           Louis, MO 63101</p>
+                        <p>3930 City Gate Mixed Farm, Amuca,
+                           Lira City, Uganda</p>
                      </div>
                   </div>
                </div>
@@ -1472,8 +2182,8 @@
                         <img src="images/icon/location.png" alt="location-icon" class="img-fluid">
                      </div>
                      <div class="locationTxt">
-                        <p>3931 Hawks Nest LaneSaint
-                           Louis, MO 63101</p>
+                        <p>3931 City Gate Mixed Farm, Amuca,
+                           Lira City, Uganda</p>
                      </div>
                   </div>
                </div>
@@ -1547,10 +2257,8 @@
          <div class="container">
             <div class="needOurSupportInner">
                <div class="needOurSupportTxt">
-                  <h2 class="fadein">Still You Need Our Support</h2>
-                  <p class="fadein">There are many variations of passages of lorem ipsum available but the majority have
-                     suffered
-                     alteration in some form by injected humor.</p>
+                  <h2 class="fadein">Stay Connected With City Gate Mixed Farm</h2>
+                  <p class="fadein">Get updates on new products, training intakes, farm visit schedules and price offers delivered straight to your inbox.</p>
                </div>
                <div class="needOurSupportInput">
                   <div class="input-group fadein">
@@ -1573,8 +2281,7 @@
                               <img src="images/logo/logo-footer.png" alt="footer-logo" class="img-fluid">
                            </div>
                            <div class="footerPara fadein">
-                              <p>There are many variations of passages of Lorem Ipsum available, but the majority have
-                                 suffered alteration in some form.</p>
+                              <p>City Gate Mixed Farm is an integrated model farm in Amuca, Lira City, Uganda — producing poultry, goats, dairy and crops, and training the next generation of Ugandan farmers.</p>
                            </div>
                            <hr class="hrLine fadein">
                            <div class="socialMediaIcon fadein">
@@ -1611,20 +2318,20 @@
                                           aria-hidden="true"></i> About Us</a>
                                  </li>
                                  <li class="nav-item fadein">
-                                    <a class="nav-link" href="poultry-feed.html"><i class="fa fa-caret-right"
-                                          aria-hidden="true"></i> Poultry Feeds </a>
-                                 </li>
-                                 <li class="nav-item fadein">
                                     <a class="nav-link" href="our-service.html"><i class="fa fa-caret-right"
                                           aria-hidden="true"></i> Our Services</a>
                                  </li>
                                  <li class="nav-item fadein">
-                                    <a class="nav-link" href="gallery-2-column.html"><i class="fa fa-caret-right"
+                                    <a class="nav-link" href="gallery-3-column.html"><i class="fa fa-caret-right"
                                           aria-hidden="true"></i> Gallery</a>
                                  </li>
                                  <li class="nav-item fadein">
-                                    <a class="nav-link" href="video-gallery.html"><i class="fa fa-caret-right"
-                                          aria-hidden="true"></i> Videos</a>
+                                    <a class="nav-link" href="shop.html"><i class="fa fa-caret-right"
+                                          aria-hidden="true"></i> Shop</a>
+                                 </li>
+                                 <li class="nav-item fadein">
+                                    <a class="nav-link" href="contact-us.html"><i class="fa fa-caret-right"
+                                          aria-hidden="true"></i> Contact Us</a>
                                  </li>
                               </ul>
                            </div>
@@ -1633,29 +2340,33 @@
                      <div class="col-sm-6 col-md-4 col-lg-3">
                         <div class="footerCol footerCol3">
                            <div class="footerMenuHeading">
-                              <h4 class="fadein">Our Services</h4>
+                              <h4 class="fadein">Farm Sectors</h4>
                            </div>
                            <div class="footerMenuLink">
                               <ul class="nav flex-column">
                                  <li class="nav-item fadein">
-                                    <a class="nav-link" href="javascript:void(0);"><i class="fa fa-caret-right"
-                                          aria-hidden="true"></i> Breeders</a>
+                                    <a class="nav-link" href="poultry-feed.html"><i class="fa fa-caret-right"
+                                          aria-hidden="true"></i> Poultry (Chicken)</a>
                                  </li>
                                  <li class="nav-item fadein">
-                                    <a class="nav-link" href="javascript:void(0);"><i class="fa fa-caret-right"
-                                          aria-hidden="true"></i> Our Blogs</a>
+                                    <a class="nav-link" href="broiler-breeder.html"><i class="fa fa-caret-right"
+                                          aria-hidden="true"></i> Goat Farming</a>
                                  </li>
                                  <li class="nav-item fadein">
-                                    <a class="nav-link" href="javascript:void(0);"><i class="fa fa-caret-right"
+                                    <a class="nav-link" href="layer-breeders.html"><i class="fa fa-caret-right"
+                                          aria-hidden="true"></i> Dairy (Cows)</a>
+                                 </li>
+                                 <li class="nav-item fadein">
+                                    <a class="nav-link" href="actigen.html"><i class="fa fa-caret-right"
+                                          aria-hidden="true"></i> Crops</a>
+                                 </li>
+                                 <li class="nav-item fadein">
+                                    <a class="nav-link" href="faq.html"><i class="fa fa-caret-right"
                                           aria-hidden="true"></i> FAQ</a>
                                  </li>
                                  <li class="nav-item fadein">
-                                    <a class="nav-link" href="javascript:void(0);"><i class="fa fa-caret-right"
-                                          aria-hidden="true"></i> Policy</a>
-                                 </li>
-                                 <li class="nav-item fadein">
-                                    <a class="nav-link" href="javascript:void(0);"><i class="fa fa-caret-right"
-                                          aria-hidden="true"></i> Terms & Condition</a>
+                                    <a class="nav-link" href="blog.html"><i class="fa fa-caret-right"
+                                          aria-hidden="true"></i> Blog</a>
                                  </li>
                               </ul>
                            </div>
@@ -1672,24 +2383,37 @@
                                     <a class="nav-link" href="javascript:void(0);">
                                        <div class="contactInfo">
                                           <div class="contactInfoIcon">
-                                             <i class="fa fa-phone" aria-hidden="true"></i>
+                                             <i class="fa fa-map-marker" aria-hidden="true"></i>
                                           </div>
                                           <div class="contactInfoTxt">
-                                             <h6>Call Us Now:</h6>
-                                             <p class="mb-0">+1 (888)123-4567</p>
+                                             <h6>Location:</h6>
+                                             <p class="mb-0">Amuca, Lira City, Uganda</p>
                                           </div>
                                        </div>
                                     </a>
                                  </li>
                                  <li class="nav-item fadein">
-                                    <a class="nav-link" href="javascript:void(0);">
+                                    <a class="nav-link" href="tel:+256123456789">
+                                       <div class="contactInfo">
+                                          <div class="contactInfoIcon">
+                                             <i class="fa fa-phone" aria-hidden="true"></i>
+                                          </div>
+                                          <div class="contactInfoTxt">
+                                             <h6>Call Us Now:</h6>
+                                             <p class="mb-0">+256 123 456 789</p>
+                                          </div>
+                                       </div>
+                                    </a>
+                                 </li>
+                                 <li class="nav-item fadein">
+                                    <a class="nav-link" href="mailto:info@citygatefarms.com">
                                        <div class="contactInfo">
                                           <div class="contactInfoIcon">
                                              <i class="fa fa-envelope-o" aria-hidden="true"></i>
                                           </div>
                                           <div class="contactInfoTxt">
                                              <h6>Email Address:</h6>
-                                             <p class="mb-0">info@example.com</p>
+                                             <p class="mb-0">info@citygatefarms.com</p>
                                           </div>
                                        </div>
                                     </a>
@@ -1701,8 +2425,8 @@
                                              <i class="fa fa-clock-o" aria-hidden="true"></i>
                                           </div>
                                           <div class="contactInfoTxt">
-                                             <h6>Office Hour:</h6>
-                                             <p class="mb-0">08:00am - 6:00pm</p>
+                                             <h6>Office Hours:</h6>
+                                             <p class="mb-0">Mon–Sat: 07:00 – 18:00</p>
                                           </div>
                                        </div>
                                     </a>
@@ -1718,8 +2442,7 @@
          <div class="footerCopyRight">
             <div class="container">
                <div class="footerCopyRightInner">
-                  <p class="mb-0 fadein">Copyright © 2023 <a href="javascript:void(0);">Farmland</a>. All Rights
-                     Reserved.</p>
+                  <p class="mb-0 fadein">Copyright © 2026 <a href="home1.html">City Gate Mixed Farm</a>. All Rights Reserved.</p>
                </div>
             </div>
          </div>
@@ -1863,9 +2586,21 @@
          active && active.classList.remove('activeTool');
          el.classList.add('activeTool');
          let pos = el.getBoundingClientRect();
-      }, 3000)
+}, 3000)
 
-   </script>
+        // Fade-in on scroll
+        const fadeElements = document.querySelectorAll('.fade-in');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        fadeElements.forEach(el => observer.observe(el));
+
+    </script>
 </body>
 
 </html>

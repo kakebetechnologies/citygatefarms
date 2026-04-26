@@ -1,44 +1,232 @@
 <!DOCTYPE html>
-<!-- 
-   Template Name: Farmland
-   Version: 1.0.0
-   Author: Webstrot
-   
-   -->
-<!--[if IE 8]> 
-<html lang="en" class="ie8 no-js">
-   <![endif]-->
-<!--[if !IE]><!-->
 <html lang="zxx" dir="ltr">
-<!--[endif]-->
-
 <head>
    <meta charset="utf-8">
-   <title>Farmland</title>
+   <title>City Gate Goats | Boer & Savannah Breeding</title>
    <meta content="width=device-width, initial-scale=1.0" name="viewport">
    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
    <link rel="stylesheet" type="text/css" href="css/fonts.css">
    <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
-   <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
    <link rel="stylesheet" type="text/css" href="css/magnific-popup.css">
    <link rel="stylesheet" type="text/css" href="css/owl.carousel.min.css">
    <link rel="stylesheet" type="text/css" href="css/owl.theme.default.min.css">
    <link rel="stylesheet" type="text/css" href="css/animate.css">
    <link rel="stylesheet" type="text/css" href="css/jquery-ui.css">
    <link rel="stylesheet" type="text/css" href="css/slick.css">
-   <link rel="stylesheet" type="text/css" href="css/grt-youtube-popup.css">
-   <link rel="stylesheet" type="text/css" href="css/fancybox.min.css">
    <link rel="stylesheet" type="text/css" href="css/style.css">
    <link rel="stylesheet" type="text/css" href="css/responsive.css">
    <link rel="shortcut icon" type="image/png" href="images/logo/favcon.png">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   <style>
+      .goat-hero {
+         position: relative;
+         height: 85vh;
+         min-height: 600px;
+         background: linear-gradient(rgba(20, 20, 10, 0.5), rgba(20, 20, 10, 0.7)), url('images/gallary/walter46-goat-4138049_1920.jpg');
+         background-size: cover;
+         background-position: center;
+         display: flex;
+         align-items: center;
+      }
+      .goat-hero::after {
+         content: '';
+         position: absolute;
+         bottom: 0;
+         left: 0;
+         right: 0;
+         height: 100px;
+         background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 100"><path fill="%23fff" d="M0,50 C360,100 720,0 1080,50 C1260,75 1350,75 1440,50 L1440,100 L0,100 Z"/></svg>') no-repeat bottom;
+         background-size: cover;
+      }
+      .goat-hero .hero-content {
+         position: relative;
+         z-index: 2;
+         text-align: center;
+         color: #fff;
+      }
+      .goat-hero h1 {
+         font-size: 4rem;
+         font-weight: 800;
+         margin-bottom: 1rem;
+      }
+      .goat-hero p {
+         font-size: 1.4rem;
+         margin-bottom: 2rem;
+      }
+      .breed-section {
+         padding: 80px 0;
+         position: relative;
+      }
+      .breed-card {
+         background: #fff;
+         border-radius: 30px;
+         overflow: hidden;
+         box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+         margin-bottom: 30px;
+         transition: all 0.4s ease;
+      }
+      .breed-card:hover {
+         transform: translateY(-10px);
+         box-shadow: 0 30px 80px rgba(0,0,0,0.15);
+      }
+      .breed-card img {
+         height: 350px;
+         object-fit: cover;
+         width: 100%;
+      }
+      .breed-card .content {
+         padding: 2rem;
+      }
+      .breed-card h3 {
+         color: #8B4513;
+         font-weight: 700;
+         font-size: 2rem;
+         margin-bottom: 1rem;
+      }
+      .breed-card .price-tag {
+         display: inline-block;
+         background: linear-gradient(135deg, #8B4513 0%, #D2691E 100%);
+         color: #fff;
+         padding: 0.5rem 1.5rem;
+         border-radius: 50px;
+         font-weight: 700;
+         font-size: 1.2rem;
+         margin-bottom: 1rem;
+      }
+      .breed-list {
+         list-style: none;
+         padding: 0;
+      }
+      .breed-list li {
+         padding: 0.5rem 0;
+         border-bottom: 1px dashed #ddd;
+      }
+      .breed-list li:last-child {
+         border-bottom: none;
+      }
+      .breed-list li i {
+         color: #8B4513;
+         margin-right: 10px;
+      }
+      .stats-bar {
+         background: linear-gradient(135deg, #8B4513 0%, #D2691E 100%);
+         padding: 40px 0;
+         color: #fff;
+      }
+      .stats-item {
+         text-align: center;
+      }
+      .stats-item h2 {
+         font-size: 3rem;
+         font-weight: 800;
+      }
+      .horizontal-scroll {
+         display: flex;
+         overflow-x: auto;
+         gap: 20px;
+         padding: 20px 0;
+         scrollbar-width: thin;
+      }
+      .horizontal-scroll::-webkit-scrollbar {
+         height: 8px;
+      }
+      .horizontal-scroll::-webkit-scrollbar-thumb {
+         background: #8B4513;
+         border-radius: 4px;
+      }
+      .scroll-item {
+         min-width: 300px;
+         flex-shrink: 0;
+      }
+      .scroll-item img {
+         width: 100%;
+         height: 250px;
+         object-fit: cover;
+         border-radius: 20px;
+      }
+      .crossbreeding-banner {
+         background: linear-gradient(135deg, #2c1810 0%, #4a2c20 100%);
+         border-radius: 30px;
+         padding: 4rem;
+         color: #fff;
+         position: relative;
+         overflow: hidden;
+      }
+      .crossbreeding-banner::before {
+         content: '';
+         position: absolute;
+         top: -30%;
+         right: -10%;
+         width: 300px;
+         height: 300px;
+         background: rgba(210, 105, 30, 0.3);
+         border-radius: 50%;
+      }
+      .crossbreeding-banner h2 {
+         color: #D2691E;
+         margin-bottom: 1rem;
+      }
+      .benefit-card {
+         background: linear-gradient(135deg, #fff 0%, #faf6f0 100%);
+         border: 2px solid #8B4513;
+         border-radius: 20px;
+         padding: 1.5rem;
+         text-align: center;
+         height: 100%;
+         transition: all 0.3s ease;
+      }
+      .benefit-card:hover {
+         background: #8B4513;
+         color: #fff;
+         transform: scale(1.05);
+      }
+      .benefit-card i {
+         font-size: 2.5rem;
+         color: #8B4513;
+         margin-bottom: 1rem;
+      }
+      .benefit-card:hover i {
+         color: #fff;
+      }
+      .benefit-card h5 {
+         font-weight: 700;
+      }
+      .btn-brown {
+         background: linear-gradient(135deg, #8B4513 0%, #D2691E 100%);
+         color: #fff;
+         padding: 1rem 2rem;
+         border-radius: 50px;
+         font-weight: 600;
+         border: none;
+         transition: all 0.3s ease;
+      }
+      .btn-brown:hover {
+         transform: translateY(-3px);
+         box-shadow: 0 10px 30px rgba(139, 69, 19, 0.4);
+         color: #fff;
+      }
+      .btn-outline-brown {
+         border: 2px solid #8B4513;
+         color: #8B4513;
+         padding: 1rem 2rem;
+         border-radius: 50px;
+         font-weight: 600;
+         background: transparent;
+         transition: all 0.3s ease;
+      }
+      .btn-outline-brown:hover {
+         background: #8B4513;
+         color: #fff;
+      }
+      @media (max-width: 768px) {
+         .goat-hero h1 { font-size: 2.5rem; }
+         .crossbreeding-banner { padding: 2rem; }
+      }
+   </style>
 </head>
-
 <body>
-   <!--cursor-->
    <div class='cursor cursor1'></div>
    <div class='cursor cursor2'></div>
-   <!--Preloader start-->
    <div id="preloader">
       <div id="status">
          <div class="u-loading">
@@ -47,52 +235,38 @@
             </div>
          </div>
          <div class="loader" id="dotsLoader">
-            <span></span>
-            <span></span>
-            <span></span>
+            <span></span><span></span><span></span>
          </div>
       </div>
    </div>
-   <!--Preloader end-->
-   <!--header start-->
    <header class="w-100 clearfix header headerOne" id="headerOne">
-      <!--top header-->
       <div class="topHeader">
          <div class="container">
             <div class="topHeaderInner">
                <div class="mobile boxGroupHeader">
                   <a href="javascript:void(0);">
                      <div class="flexGroupHeader">
-                        <div class="icon">
-                           <img src="images/icon/phone.png" alt="icon" class="img-fluid">
-                        </div>
-                        <div class="iconTxt">
-                           <span>+1 (888)123-4567</span>
-                        </div>
+                        <div class="icon"><img src="images/icon/phone.png" alt="icon" class="img-fluid"></div>
+                        <div class="iconTxt"><span>+256 123 456 789</span></div>
                      </div>
                   </a>
                </div>
                <div class="mail boxGroupHeader">
                   <a href="javascript:void(0);">
                      <div class="flexGroupHeader">
-                        <div class="icon">
-                           <img src="images/icon/mail.png" alt="icon" class="img-fluid">
-                        </div>
-                        <div class="iconTxt">
-                           <span>info@example.com</span>
-                        </div>
+                        <div class="icon"><img src="images/icon/mail.png" alt="icon" class="img-fluid"></div>
+                        <div class="iconTxt"><span>info@citygatefarms.com</span></div>
                      </div>
                   </a>
                </div>
                <div class="language boxGroupHeader ms-auto">
                   <div class="flexGroupHeader">
-                     <div class="icon">
-                        <img src="images/icon/lang.png" alt="icon" class="img-fluid">
-                     </div>
+                     <div class="icon"><img src="images/icon/lang.png" alt="icon" class="img-fluid"></div>
                      <div class="iconTxt">
                         <select class="form-select">
                            <option>English</option>
-                           <option>Hindi</option>
+                           <option>Luo</option>
+                           <option>Luganda</option>
                         </select>
                      </div>
                   </div>
@@ -100,159 +274,37 @@
             </div>
          </div>
       </div>
-      <!--main header-->
       <div class="mainHeader">
          <nav class="navbar navbar-expand-xl">
             <div class="container">
-               <a class="navbar-brand" href="#"><img src="images/logo/logo.png" alt="loader" class="img-fluid"></a>
+               <a class="navbar-brand" href="#"><img src="images/logo/citygatelogo.png" alt="City Gate Farm" class="img-fluid"></a>
                <div class="collapse navbar-collapse" id="collapsibleNavbar">
                   <ul class="navbar-nav">
+                     <li class="nav-item"><a class="nav-link" href="home1.html"><span>Home</span></a></li>
+                     <li class="nav-item"><a class="nav-link" href="about-us.html">About Us</a></li>
                      <li class="nav-item dropdown">
-                        <a class="nav-link" href="#" data-bs-toggle="dropdown"><span>Home</span> <i
-                              class="fa fa-angle-right" aria-hidden="true"></i></a>
-                        <ul class="dropdown-menu">
-                           <li><a class="dropdown-item" href="home1.html">Home 01 ( Poultry)</a></li>
-                           <li><a class="dropdown-item" href="home2.html">Home 02 ( Pig )</a></li>
-                           <li><a class="dropdown-item" href="home3.html">Home 03 ( Fish )</a></li>
-                           <li><a class="dropdown-item" href="home4.html">Home 04 ( Horse )</a></li>
-                           <li><a class="dropdown-item" href="home4.html">Home 05 ( Sheep )</a></li>
-                        </ul>
-                     </li>
-                     <li class="nav-item dropdown">
-                        <a class="nav-link" href="#" data-bs-toggle="dropdown">Pages <i
-                              class="fa fa-angle-right" aria-hidden="true"></i></a>
-                        <ul class="dropdown-menu">
-                           <li><a class="dropdown-item" href="about-us.html">About Us</a></li>
-                           <li><a class="dropdown-item" href="faq.html">FAQ</a></li>
-                           <li><a class="dropdown-item" href="login.html">Login</a></li>
-                           <li><a class="dropdown-item" href="page-not-found.html">404 Page</a></li>
-                           <li><a class="dropdown-item" href="coming-soon.html">Coming Soon</a></li>
-                        </ul>
-                     </li>
-                     <li class="nav-item dropdown">
-                        <a class="nav-link" href="#" data-bs-toggle="dropdown">Services <i
-                              class="fa fa-angle-right" aria-hidden="true"></i></a>
+                        <a class="nav-link" href="our-service.html" data-bs-toggle="dropdown">Services <i class="fa fa-angle-right"></i></a>
                         <ul class="dropdown-menu">
                            <li><a class="dropdown-item" href="our-service.html">All Services</a></li>
-                           <li><a class="dropdown-item" href="actigen.html">Actigen</a></li>
-                           <li><a class="dropdown-item" href="broiler-breeder.html">Broiler Breeder</a></li>
-                           <li><a class="dropdown-item" href="layer-breeders.html">Layer Breeders</a></li>
-                           <li><a class="dropdown-item" href="poultry-feed.html">Poultry Feed</a></li>
+                           <li><a class="dropdown-item" href="poultry-feed.html">Poultry (Chicken)</a></li>
+                           <li><a class="dropdown-item" href="broiler-breeder.html">Goat Farming</a></li>
+                           <li><a class="dropdown-item" href="layer-breeders.html">Dairy (Cows)</a></li>
+                           <li><a class="dropdown-item" href="actigen.html">Crops</a></li>
                         </ul>
                      </li>
-                     <li class="nav-item dropdown">
-                        <a class="nav-link" href="#" data-bs-toggle="dropdown">Gallery <i
-                              class="fa fa-angle-right" aria-hidden="true"></i></a>
-                        <ul class="dropdown-menu">
-                           <li><a class="dropdown-item" href="gallery-2-column.html">Gallery 2 Column</a></li>
-                           <li><a class="dropdown-item" href="gallery-3-column.html">Gallery 3 Column</a></li>
-                           <li><a class="dropdown-item" href="video-gallery.html">Video Gallery</a></li>
-                           <li><a class="dropdown-item" href="video-single.html">Video Single</a></li>
-                        </ul>
-                     </li>
-                     <li class="nav-item dropdown">
-                        <a class="nav-link" href="#" data-bs-toggle="dropdown">Blog <i
-                              class="fa fa-angle-right" aria-hidden="true"></i></a>
-                        <ul class="dropdown-menu">
-                           <li><a class="dropdown-item" href="blog.html">Blog Category</a></li>
-                           <li><a class="dropdown-item" href="blog-with-sidebar.html">Blog With Sidebar </a>
-                           </li>
-                           <li><a class="dropdown-item" href="blog-single.html">Blog Single</a></li>
-                        </ul>
-                     </li>
-                     <li class="nav-item dropdown">
-                        <a class="nav-link" href="#" data-bs-toggle="dropdown">Shop <i
-                              class="fa fa-angle-right" aria-hidden="true"></i></a>
-                        <ul class="dropdown-menu">
-                           <li><a class="dropdown-item" href="shop.html">Our Shop</a></li>
-                           <li><a class="dropdown-item" href="shop-single.html">Shop Single</a></li>
-                           <li><a class="dropdown-item" href="cart.html">Shopping Cart</a></li>
-                           <li><a class="dropdown-item" href="checkout.html">Checkout</a></li>
-                        </ul>
-                     </li>
-                     <li class="nav-item dropdown">
-                        <a class="nav-link" href="#" data-bs-toggle="dropdown"><span>Shortcode</span> <i
-                              class="fa fa-angle-right" aria-hidden="true"></i></a>
-                        <div class="dropdown-menu dropdownMegaMenu">
-                           <div class="dropdownRow">
-                              <div class="dropdownCol">
-                                 <ul class="dropdownUl nav flex-column">
-                                    <li class="dropdownItem"><a class="dropdownLink"
-                                          href="sho_accordion.html">Accordion</a></li>
-                                    <li class="dropdownItem"><a class="dropdownLink" href="sho_alert.html">Alert</a>
-                                    </li>
-                                    <li class="dropdownItem"><a class="dropdownLink" href="sho_button.html">Button</a>
-                                    </li>
-                                    <li class="dropdownItem"><a class="dropdownLink" href="sho_client.html">Client</a>
-                                    </li>
-                                    <li class="dropdownItem"><a class="dropdownLink" href="sho_counter.html">Counter</a>
-                                    </li>
-                                    <li class="dropdownItem"><a class="dropdownLink"
-                                          href="sho_feature_with_icon.html">Feature with Icon</a></li>
-                                 </ul>
-                              </div>
-                              <div class="dropdownCol">
-                                 <ul class="dropdownUl nav flex-column">
-                                    <li class="dropdownItem"><a class="dropdownLink"
-                                          href="sho_feature_with_images.html">Feature with Images</a></li>
-                                    <li class="dropdownItem"><a class="dropdownLink" href="sho_form.html">Form</a></li>
-                                    <li class="dropdownItem"><a class="dropdownLink" href="sho_heading.html">Heading</a>
-                                    </li>
-                                    <li class="dropdownItem"><a class="dropdownLink" href="login.html">List</a></li>
-                                    <li class="dropdownItem"><a class="dropdownLink"
-                                          href="sho_portfolio.html">Portfolio</a></li>
-                                    <li class="dropdownItem"><a class="dropdownLink"
-                                          href="sho_pricing-table.html">Pricing Table</a></li>
-                                 </ul>
-                              </div>
-                              <div class="dropdownCol">
-                                 <ul class="dropdownUl nav flex-column">
-                                    <li class="dropdownItem"><a class="dropdownLink" href="sho_social-icon.html">Social
-                                          Icon</a></li>
-                                    <li class="dropdownItem"><a class="dropdownLink" href="sho_tab.html">Tab</a></li>
-                                    <li class="dropdownItem"><a class="dropdownLink" href="sho_team.html">Team</a></li>
-                                    <li class="dropdownItem"><a class="dropdownLink"
-                                          href="sho_testimonials.html">Testimonials</a></li>
-                                 </ul>
-                              </div>
-                              <div class="dropdownCol">
-                                 <div class="dropdownColImg d-none d-xl-block">
-                                    <img src="images/img15.png" alt="menu-img" class="img-fluid">
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </li>
-                     <li class="nav-item">
-                        <a class="nav-link" href="contact-us.html">Contact Us</a>
-                     </li>
-                     <li class="nav-item loginBtn d-block d-md-none">
-                        <div class="btnGroup">
-                           <a class="nav-link btn" href="login.html">Log In</a>
-                           <a class="nav-link btn" href="login.html">Register</a>
-                        </div>
-                     </li>
+                     <li class="nav-item"><a class="nav-link" href="gallery-3-column.html">Gallery</a></li>
+                     <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                     <li class="nav-item"><a class="nav-link" href="shop.html">Shop</a></li>
+                     <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
+                     <li class="nav-item"><a class="nav-link" href="contact-us.html">Contact Us</a></li>
                   </ul>
                </div>
                <div class="rightMenu">
                   <ul class="nav">
-                     <li class="nav-item searchBtn">
-                        <a class="nav-link" href="javascript:void(0);"><img src="images/icon/search.png" alt="loader"
-                              class="img-fluid"></a>
-                     </li>
-                     <li class="nav-item cardBtn">
-                        <a class="nav-link" href="javascript:void(0);"><img src="images/icon/card.png" alt="loader"
-                              class="img-fluid"><span class="badge rounded-pill">2</span></a>
-                     </li>
-                     <li class="nav-item loginBtn d-none d-md-block">
-                        <div class="btnGroup">
-                           <a class="nav-link btn" href="login.html">Log In</a>
-                           <a class="nav-link btn" href="login.html">Register</a>
-                        </div>
-                     </li>
+                     <li class="nav-item searchBtn"><a class="nav-link" href="javascript:void(0);"><img src="images/icon/search.png" alt="loader" class="img-fluid"></a></li>
+                     <li class="nav-item cardBtn"><a class="nav-link" href="javascript:void(0);"><img src="images/icon/card.png" alt="loader" class="img-fluid"><span class="badge rounded-pill">2</span></a></li>
                      <li class="nav-item toggleBtn">
-                        <a class="nav-link navbar-toggler" href="javascript:void(0);" data-bs-toggle="collapse"
-                           data-bs-target="#collapsibleNavbar">
+                        <a class="nav-link navbar-toggler" href="javascript:void(0);" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
                            <span class="navbar-toggler-icon"></span>
                         </a>
                      </li>
@@ -261,274 +313,186 @@
             </div>
          </nav>
       </div>
-      <!--overlay-->
       <div class="widgetOverlay"></div>
    </header>
-   <!--header end-->
-   <!--search box start-->
-   <div class="searchBox">
+
+   <!-- Hero -->
+   <section class="goat-hero">
       <div class="container">
-         <div class="searchBoxInner">
-            <div class="searchHeading">
-               <h4>Search Our Site</h4>
-            </div>
-            <div class="searchInput">
-               <div class="input-group">
-                  <input type="text" class="form-control" placeholder="Search">
-                  <a href="javascript:void(0);" class="input-group-text searchButton"><span>Search</span> <img
-                        src="images/icon/icon-right.png" alt="btn-arrow" class="img-fluid"></a>
-               </div>
-            </div>
-            <div class="quickSearch">
-               <p><span>Quick Search:</span>Poultry, Pig Farm, Fish Feed, Hen Feeds</p>
-            </div>
+         <div class="hero-content wow fadeInUp">
+            <h1>Premium Goat Breeding</h1>
+            <p>Boer & Savannah goats — superior genetics for Northern Uganda</p>
+            <a href="shop.html" class="btn btn-brown me-3">Buy Goats</a>
+            <a href="contact-us.html" class="btn btn-outline-brown">Cross-Breeding Service</a>
          </div>
       </div>
-   </div>
-   <!--search box end-->
-   <!--cart side box end-->
-   <div class="cartSideBox" id="cartSideBox">
-      <div class="cartSideBoxInner">
-         <div class="shoppingCart d-flex justify-content-between align-items-center">
-            <h4 class="mb-0">Shopping Cart</h4>
-            <a href="javascript:void(0);" class="closeCart"><img src="images/icon/close.png" alt="close" class="img-fluid"></a>
-         </div>
-         <span class="itemsCounter">02 items</span>
-         <div class="allItems">
-            <div class="singleItems">
-               <div class="itemImage">
-                  <img src="images/img23.png" alt="close" class="img-fluid">
-               </div>
-               <div class="itemContent">
-                  <div class="itemTitlePriceGroup">
-                     <div class="itemTitle">
-                        <h5>Bovans Browns</h5>
-                     </div>
-                     <div class="itemPrice">
-                        <ins>$45</ins> <del>60</del>
-                     </div>
-                  </div>
-                  <div class="addItems">
-                     <div class="incrementItems">
-                        <div class="input-group qty-container">
-                           <a href="javascript:void(0);" class="input-group-text qty-btn-minus">-</a>
-                           <input type="text" class="form-control input-qty" placeholder="" value="0">
-                           <a href="javascript:void(0);" class="input-group-text qty-btn-plus">+</a>
-                         </div>
-                     </div>
-                     <div class="removeItems">
-                        <a href="javascript:void(0);" class="removeItem">REMOVE</a>
-                     </div>
-                  </div>
-               </div>
-            </div>
-            <div class="singleItems">
-               <div class="itemImage">
-                  <img src="images/img24.png" alt="close" class="img-fluid">
-               </div>
-               <div class="itemContent">
-                  <div class="itemTitlePriceGroup">
-                     <div class="itemTitle">
-                        <h5>Organic Scratch Grains</h5>
-                     </div>
-                     <div class="itemPrice">
-                        <ins>$45</ins> <del>60</del>
-                     </div>
-                  </div>
-                  <div class="addItems">
-                     <div class="incrementItems">
-                        <div class="input-group qty-container">
-                           <a href="javascript:void(0);" class="input-group-text qty-btn-minus">-</a>
-                           <input type="text" class="form-control input-qty" placeholder="" value="0">
-                           <a href="javascript:void(0);" class="input-group-text qty-btn-plus">+</a>
-                         </div>
-                     </div>
-                     <div class="removeItems">
-                        <a href="javascript:void(0);" class="removeItem">REMOVE</a>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-         <div class="priceTbl">
-            <div class="priceBody">
-               <div class="priceTr">
-                  <div class="priceTd">
-                     <h6>Subtotal</h6>
-                  </div>
-                  <div class="priceTd text-end">
-                     <span>$120.00</span>
-                  </div>
-               </div>
-               <div class="priceTr">
-                  <div class="priceTd">
-                     <h6>Discount</h6>
-                  </div>
-                  <div class="priceTd text-end">
-                     <span>-$30.00</span>
-                  </div>
-               </div>
-            </div>
-              
-            <div class="priceFoot">
-               <div class="priceTr">
-                  <div class="priceTd">
-                     <h5>Total</h5>
-                  </div>
-                  <div class="priceTd text-end">
-                     <span>$90.00</span>
-                  </div>
-               </div>
-            </div>
-         </div>
-         <div class="checkoutTaxIncluded">
-            <p>Tax included and shipping calculated at checkout</p>
-            <div class="form-check">
-               <label class="form-check-label">
-                 <input class="form-check-input" type="checkbox" name="remember">I agree with <a href="javascript:void(0);">Terms & Conditions</a>
-               </label>
+   </section>
+
+<!-- Intro Paragraphs -->
+    <section class="py-5">
+       <div class="container">
+          <div class="row">
+             <div class="col-lg-10">
+                <h2 class="mb-4" style="color: #8B4513; font-weight: 700;">Goat Farming at City Gate Farm</h2>
+                <p class="lead mb-4" style="font-size: 1.1rem; line-height: 1.8; color: #555; text-align: left;">We farm <strong>Boer</strong> and <strong>Savannah</strong> goats — two of Africa's most prized meat breeds, originally from South Africa. Boer goats are known for their heavy frames, rapid growth, and superior carcass quality. The all-white Savannah breed is celebrated for hardiness, strong maternal instincts, and adaptation to hot, dry climates. Both breeds thrive in Northern Uganda conditions.</p>
+                <p class="lead" style="font-size: 1.1rem; line-height: 1.8; color: #555; text-align: left;">Quality meat goats are in high demand across northern Uganda and the wider East African region. Our herd provides premium breeding stock and cross-breeding services to help local farmers upgrade their herds for better growth rates, carcass quality, and market value.</p>
              </div>
-         </div>
-         <div class="cartBtnGroup">
-            <a class="btnCustom3 btn-1 hover-slide-down" href="javascript:void(0);">
-               <span>Checkout <img src="images/icon/arrow-right.png" alt="right" class="img-fluid"></span>
-            </a>
-            <a class="btnCustom4 btn-1 hover-slide-down" href="javascript:void(0);">
-               <span>View Cart <img src="images/icon/arrow-right.png" alt="right" class="img-fluid"></span>
-            </a>
-         </div>
-      </div>
-   </div>
-   <!--cart side box end-->
-   <!--banner section start-->
-   <section class="w-100 clearfix bannerSec" id="bannerSec" style="background-image: url('images/inner-banner.png');">
-      <div class="container">
-         <div class="bannerContent">
-            <h1>Broiler Breeder</h1>
-            <ul class="breadcrumb">
-               <li class="breadcrumb-item"><a href="javascript:void(0);">Home</a></li>
-               <li class="breadcrumb-item active">Broiler Breeder</li>
-            </ul>
-         </div>
-      </div>
-   </section>
-   <!--banner section end-->
-   <!--shop product section start-->
-   <section class="w-100 clearfix broilerBreeder" id="broilerBreeder">
-      <div class="container">
-         <div class="broilerBreederInner">
-            <div class="broilerBreederContentBox">
-               <div class="row broilerBreederRow">
-                  <div class="col-xl-6 broilerBreederCol broilerBreederCol1">
-                     <div class="broilerBreederImg">
-                        <img src="images/img56.png" alt="Broiler-Breeder" class="img-fluid">
-                     </div>
-                  </div>
-                  <div class="col-xl-6 broilerBreederCol broilerBreederCol2">
-                     <div class="broilerBreederContent">
-                        <div class="broilerBreederHeadGroup">
-                           <div class="broilBreederImg">
-                              <img src="images/icon7.png" alt="Broiler-Breeder" class="img-fluid">
-                           </div>
-                           <div class="broilBreederHeading">
-                              <h2 class="mb-0">Ross</h2>
-                           </div>
-                        </div>
-                        <div class="broilerBreederPara">
-                           <p>Our facilities constitute of separate brooding, growing and laying sheds, cold storage rooms for hatching eggs, farms and hatcheries for layer and broiler breeders, feed and disease testing laboratories.</p>
-                           <ul>
-                              <li>it look like readable English. Many desktop publishing packages.</li>
-                              <li>Richard McClintock, a Latin professor at Hampden-Sydney College</li>
-                              <li>I will give you a complete account of the system</li>
-                              <li>On the other hand, we denounce with righteous indignation and dislike men</li>
-                           </ul>
-                           <p class="paraBold">We are uncompromising in our control and monitoring of the production cycle. From the arrival of chicks/raw material to dispatch to our customers, biosecurity measures are stringently followed.</p>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-            <div class="broilerBreederContentBox">
-               <div class="row broilerBreederRow">
-                  <div class="col-xl-6 broilerBreederCol broilerBreederCol2 order-xl-2">
-                     <div class="broilerBreederImg">
-                        <img src="images/img57.png" alt="Broiler-Breeder" class="img-fluid">
-                     </div>
-                  </div>
-                  <div class="col-xl-6 broilerBreederCol broilerBreederCol1 order-xl-1">
-                     <div class="broilerBreederContent">
-                        <div class="broilerBreederHeadGroup">
-                           <div class="broilBreederImg">
-                              <img src="images/icon7.png" alt="Broiler-Breeder" class="img-fluid">
-                           </div>
-                           <div class="broilBreederHeading">
-                              <h2 class="mb-0">Arbor Acres</h2>
-                           </div>
-                        </div>
-                        <div class="broilerBreederPara">
-                           <p>Our facilities constitute of separate brooding, growing and laying sheds, cold storage rooms for hatching eggs, farms and hatcheries for layer and broiler breeders, feed and disease testing laboratories.</p>
-                           <ul>
-                              <li>it look like readable English. Many desktop publishing packages.</li>
-                              <li>Richard McClintock, a Latin professor at Hampden-Sydney College</li>
-                              <li>I will give you a complete account of the system</li>
-                              <li>On the other hand, we denounce with righteous indignation and dislike men</li>
-                           </ul>
-                           <p class="paraBold">We are uncompromising in our control and monitoring of the production cycle. From the arrival of chicks/raw material to dispatch to our customers, biosecurity measures are stringently followed.</p>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-            <div class="broilerBreederContentBox">
-               <div class="row broilerBreederRow">
-                  <div class="col-xl-6 broilerBreederCol broilerBreederCol1">
-                     <div class="broilerBreederImg">
-                        <img src="images/img58.png" alt="Broiler-Breeder" class="img-fluid">
-                     </div>
-                  </div>
-                  <div class="col-xl-6 broilerBreederCol broilerBreederCol2">
-                     <div class="broilerBreederContent">
-                        <div class="broilerBreederHeadGroup">
-                           <div class="broilBreederImg">
-                              <img src="images/icon7.png" alt="Broiler-Breeder" class="img-fluid">
-                           </div>
-                           <div class="broilBreederHeading">
-                              <h2 class="mb-0">Cobb</h2>
-                           </div>
-                        </div>
-                        <div class="broilerBreederPara">
-                           <p>Our facilities constitute of separate brooding, growing and laying sheds, cold storage rooms for hatching eggs, farms and hatcheries for layer and broiler breeders, feed and disease testing laboratories.</p>
-                           <ul>
-                              <li>it look like readable English. Many desktop publishing packages.</li>
-                              <li>Richard McClintock, a Latin professor at Hampden-Sydney College</li>
-                              <li>I will give you a complete account of the system</li>
-                              <li>On the other hand, we denounce with righteous indignation and dislike men</li>
-                           </ul>
-                           <p class="paraBold">We are uncompromising in our control and monitoring of the production cycle. From the arrival of chicks/raw material to dispatch to our customers, biosecurity measures are stringently followed.</p>
-                        </div>
-                     </div>
-                  </div>
-               </div>
+          </div>
+       </div>
+    </section>
+
+<!-- Why Goat Farming - Features -->
+    <section class="py-5" style="background: linear-gradient(135deg, #faf6f0 0%, #f5ebe0 100%);">
+       <div class="container">
+          <h2 class="text-center mb-5" style="color: #8B4513; font-weight: 700;">Why Goat Farming?</h2>
+          <div class="row g-4">
+             <div class="col-md-4">
+                <div class="benefit-card wow fadeInUp" data-wow-delay="0.1s">
+                   <i class="fa fa-money"></i>
+                   <h5>High Returns</h5>
+                   <p>Goats sell for UGX 600K+ — quick market turnaround in 8 months</p>
+                </div>
+             </div>
+             <div class="col-md-4">
+                <div class="benefit-card wow fadeInUp" data-wow-delay="0.2s">
+                   <i class="fa fa-sun-o"></i>
+                   <h5>Drought-Tolerant</h5>
+                   <p>Perfect for Northern Uganda's climate — browse on shrubs & pasture</p>
+                </div>
+             </div>
+             <div class="col-md-4">
+                <div class="benefit-card wow fadeInUp" data-wow-delay="0.3s">
+                   <i class="fa fa-star"></i>
+                   <h5>Constant Demand</h5>
+                   <p>Weddings, festivals, restaurants — premium prices for quality meat</p>
+                </div>
+             </div>
+          </div>
+       </div>
+    </section>
+
+    <!-- Gallery Scroll -->
+    <section class="py-5">
+       <div class="container">
+          <h2 class="text-center mb-4" style="color: #8B4513; font-weight: 700;">Our Herd Gallery</h2>
+          <div class="horizontal-scroll wow fadeInUp">
+             <div class="scroll-item">
+                <img src="images/gallary/walter46-goat-4138049_1920.jpg" alt="Boer Goats">
+             </div>
+             <div class="scroll-item">
+                <img src="images/gallary/rschaubhut-goat-5642612_1920.jpg" alt="Savannah Goats">
+             </div>
+             <div class="scroll-item">
+                <img src="images/gallary/bernhardjaeck-billy-goat-7397721_1920.jpg" alt="Billy Goat">
+             </div>
+             <div class="scroll-item">
+                <img src="images/gallary/techvaran-goats-5902053_1920.jpg" alt="Goat Herd">
+             </div>
+             <div class="scroll-item">
+               <img src="images/gallary/engin_akyurt-egg-6757508_1920.jpg" alt="Goat 5">
             </div>
          </div>
       </div>
    </section>
-   <!--shop product end-->
-   <!--footer start-->
+
+<!-- Boer Breed -->
+    <section class="breed-section">
+       <div class="container">
+          <div class="breed-card wow fadeInUp">
+             <div class="row g-0">
+                <div class="col-lg-6">
+                   <img src="images/gallary/walter46-goat-4138049_1920.jpg" alt="Boer Goats">
+                </div>
+                <div class="col-lg-6">
+                   <div class="content">
+                      <span class="price-tag">From UGX 600,000</span>
+                      <h3>Boer Goats</h3>
+                      <p class="text-muted mb-4">Heavy-framed, fast-growing meat breed. Excellent feed conversion and carcass quality.</p>
+                      <ul class="breed-list">
+                         <li><i class="fa fa-check"></i> Ready at 8 months</li>
+                         <li><i class="fa fa-check"></i> Superior meat yield</li>
+                         <li><i class="fa fa-check"></i> Good for stud breeding</li>
+                         <li><i class="fa fa-check"></i> Health-checked & ear-tagged</li>
+                      </ul>
+                      <a href="shop.html" class="btn btn-brown mt-3">Order Boer Goat</a>
+                   </div>
+                </div>
+             </div>
+          </div>
+
+          <!-- Savannah Breed -->
+          <div class="breed-card wow fadeInUp">
+             <div class="row g-0">
+                <div class="col-lg-6 order-lg-2">
+                   <img src="images/gallary/rschaubhut-goat-5642612_1920.jpg" alt="Savannah Goats">
+                </div>
+                <div class="col-lg-6 order-lg-1">
+                   <div class="content">
+                      <span class="price-tag">From UGX 600,000</span>
+                      <h3>Savannah (White) Goats</h3>
+                      <p class="text-muted mb-4">Hardy, all-white meat breed. Thrives in hot, dry conditions.</p>
+                      <ul class="breed-list">
+                         <li><i class="fa fa-check"></i> Excellent maternal qualities</li>
+                         <li><i class="fa fa-check"></i> Low kid mortality</li>
+                         <li><i class="fa fa-check"></i> Drought-tolerant</li>
+                         <li><i class="fa fa-check"></i> Clean white carcass</li>
+                      </ul>
+                      <a href="shop.html" class="btn btn-brown mt-3">Order Savannah Goat</a>
+                   </div>
+                </div>
+             </div>
+          </div>
+       </div>
+    </section>
+
+   <!-- Cross Breeding -->
+   <section class="py-5">
+      <div class="container">
+         <div class="crossbreeding-banner wow fadeInUp">
+            <div class="row align-items-center">
+               <div class="col-lg-8">
+                  <h2>Cross-Breeding Service</h2>
+                  <p class="mb-4">Upgrade your local herd with Boer or Savannah genetics. Better weight gain, bigger carcasses, higher market value — within one generation.</p>
+                  <ul class="list-unstyled mb-4">
+                     <li class="mb-2"><i class="fa fa-star"></i> Fast-growing market: weddings, festivals, restaurants</li>
+                     <li class="mb-2"><i class="fa fa-star"></i> Low maintenance — browse on shrubs & pasture</li>
+                     <li class="mb-2"><i class="fa fa-star"></i> Drought-tolerant for Northern Uganda</li>
+                  </ul>
+               </div>
+               <div class="col-lg-4 text-lg-end">
+                  <a href="contact-us.html" class="btn btn-brown">Enquire Now</a>
+               </div>
+            </div>
+         </div>
+      </div>
+</section>
+
+    <!-- CTA -->
+   <section class="py-5">
+      <div class="container">
+         <div class="text-center">
+            <h2 class="mb-4" style="color: #8B4513; font-weight: 700;">Ready to Start?</h2>
+            <p class="mb-4">Buy goats, book cross-breeding, or visit the farm</p>
+            <div class="d-flex flex-wrap justify-content-center gap-3">
+               <a href="shop.html" class="btn btn-brown">Buy Goats</a>
+               <a href="contact-us.html" class="btn btn-outline-brown">Book a Visit</a>
+            </div>
+         </div>
+      </div>
+   </section>
+
+   <!-- Footer -->
    <footer class="w-100 clearfix footer footerBg1" id="footer">
       <div class="needOurSupport">
          <div class="container">
             <div class="needOurSupportInner">
                <div class="needOurSupportTxt">
-                  <h2>Still You Need Our Support</h2>
-                  <p>There are many variations of passages of lorem ipsum available but the majority have suffered
-                     alteration in some form by injected humor.</p>
+                  <h2>Stay Connected With City Gate Mixed Farm</h2>
                </div>
                <div class="needOurSupportInput">
                   <div class="input-group">
                      <input type="text" class="form-control" placeholder="Email Address">
-                     <a href="javascript:void(0);" class="input-group-text subscriptionBtn"><span>Subscription</span>
-                        <img src="images/icon/icon-right.png" alt="btn-arrow" class="img-fluid"></a>
+                     <a href="javascript:void(0);" class="input-group-text subscriptionBtn"><span>Subscribe</span></a>
                   </div>
                </div>
             </div>
@@ -537,151 +501,39 @@
       <div class="footerGroup">
          <div class="footerInner">
             <div class="container">
-               <div class="footerInnerRow">
-                  <div class="row">
-                     <div class="col-md-12 col-lg-3">
-                        <div class="footerCol footerCol1">
-                           <div class="footerLogo">
-                              <img src="images/logo/logo-footer.png" alt="footer-logo" class="img-fluid">
-                           </div>
-                           <div class="footerPara">
-                              <p>There are many variations of passages of Lorem Ipsum available, but the majority have
-                                 suffered alteration in some form.</p>
-                           </div>
-                           <hr class="hrLine">
-                           <div class="socialMediaIcon">
-                              <ul class="nav">
-                                 <li class="nav-item">
-                                    <a class="nav-link" href="javascript:void(0);"><i class="fa fa-whatsapp"
-                                          aria-hidden="true"></i></a>
-                                 </li>
-                                 <li class="nav-item">
-                                    <a class="nav-link" href="javascript:void(0);"><i class="fa fa-instagram"
-                                          aria-hidden="true"></i></a>
-                                 </li>
-                                 <li class="nav-item">
-                                    <a class="nav-link" href="javascript:void(0);"><i class="fa fa-facebook"
-                                          aria-hidden="true"></i></a>
-                                 </li>
-                                 <li class="nav-item">
-                                    <a class="nav-link" href="javascript:void(0);"><i class="fa fa-twitter"
-                                          aria-hidden="true"></i></a>
-                                 </li>
-                              </ul>
-                           </div>
+               <div class="row">
+                  <div class="col-md-6 col-lg-3">
+                     <div class="footerCol">
+                        <img src="images/logo/logo-footer.png" alt="footer-logo" class="img-fluid mb-3">
+                        <p>City Gate Mixed Farm — integrated model farm in Amuca, Lira City, Uganda.</p>
+                        <div class="socialMediaIcon">
+                           <ul class="nav">
+                              <li class="nav-item"><a class="nav-link" href="javascript:void(0);"><i class="fa fa-whatsapp"></i></a></li>
+                              <li class="nav-item"><a class="nav-link" href="javascript:void(0);"><i class="fa fa-facebook"></i></a></li>
+                              <li class="nav-item"><a class="nav-link" href="javascript:void(0);"><i class="fa fa-instagram"></i></a></li>
+                           </ul>
                         </div>
                      </div>
-                     <div class="col-sm-6 col-md-4 col-lg-3">
-                        <div class="footerCol footerCol2">
-                           <div class="footerMenuHeading">
-                              <h4>Useful Links</h4>
-                           </div>
-                           <div class="footerMenuLink">
-                              <ul class="nav flex-column">
-                                 <li class="nav-item">
-                                    <a class="nav-link" href="about-us.html"><i class="fa fa-caret-right"
-                                          aria-hidden="true"></i> About Us</a>
-                                 </li>
-                                 <li class="nav-item">
-                                    <a class="nav-link" href="poultry-feed.html"><i class="fa fa-caret-right"
-                                          aria-hidden="true"></i> Poultry Feeds </a>
-                                 </li>
-                                 <li class="nav-item">
-                                    <a class="nav-link" href="our-service.html"><i class="fa fa-caret-right"
-                                          aria-hidden="true"></i> Our Services</a>
-                                 </li>
-                                 <li class="nav-item">
-                                    <a class="nav-link" href="gallery-2-column.html"><i class="fa fa-caret-right"
-                                          aria-hidden="true"></i> Gallery</a>
-                                 </li>
-                                 <li class="nav-item">
-                                    <a class="nav-link" href="video-gallery.html"><i class="fa fa-caret-right"
-                                          aria-hidden="true"></i> Videos</a>
-                                 </li>
-                              </ul>
-                           </div>
-                        </div>
+                  </div>
+                  <div class="col-md-6 col-lg-3">
+                     <div class="footerCol">
+                        <h4>Quick Links</h4>
+                        <ul class="nav flex-column">
+                           <li class="nav-item"><a class="nav-link" href="poultry-feed.html">Poultry</a></li>
+                           <li class="nav-item"><a class="nav-link" href="broiler-breeder.html">Goats</a></li>
+                           <li class="nav-item"><a class="nav-link" href="layer-breeders.html">Dairy</a></li>
+                           <li class="nav-item"><a class="nav-link" href="actigen.html">Crops</a></li>
+                        </ul>
                      </div>
-                     <div class="col-sm-6 col-md-4 col-lg-3">
-                        <div class="footerCol footerCol3">
-                           <div class="footerMenuHeading">
-                              <h4>Our Services</h4>
-                           </div>
-                           <div class="footerMenuLink">
-                              <ul class="nav flex-column">
-                                 <li class="nav-item">
-                                    <a class="nav-link" href="javascript:void(0);"><i class="fa fa-caret-right"
-                                          aria-hidden="true"></i> Breeders</a>
-                                 </li>
-                                 <li class="nav-item">
-                                    <a class="nav-link" href="javascript:void(0);"><i class="fa fa-caret-right"
-                                          aria-hidden="true"></i> Our Blogs</a>
-                                 </li>
-                                 <li class="nav-item">
-                                    <a class="nav-link" href="javascript:void(0);"><i class="fa fa-caret-right"
-                                          aria-hidden="true"></i> FAQ</a>
-                                 </li>
-                                 <li class="nav-item">
-                                    <a class="nav-link" href="javascript:void(0);"><i class="fa fa-caret-right"
-                                          aria-hidden="true"></i> Policy</a>
-                                 </li>
-                                 <li class="nav-item">
-                                    <a class="nav-link" href="javascript:void(0);"><i class="fa fa-caret-right"
-                                          aria-hidden="true"></i> Terms & Condition</a>
-                                 </li>
-                              </ul>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="col-md-4 col-lg-3">
-                        <div class="footerCol footerCol4">
-                           <div class="footerMenuHeading">
-                              <h4>Contact Information</h4>
-                           </div>
-                           <div class="footerMenuLink footerContactInfo">
-                              <ul class="nav flex-column">
-                                 <li class="nav-item">
-                                    <a class="nav-link" href="javascript:void(0);">
-                                       <div class="contactInfo">
-                                          <div class="contactInfoIcon">
-                                             <i class="fa fa-phone" aria-hidden="true"></i>
-                                          </div>
-                                          <div class="contactInfoTxt">
-                                             <h6>Call Us Now:</h6>
-                                             <p class="mb-0">+1 (888)123-4567</p>
-                                          </div>
-                                       </div>
-                                    </a>
-                                 </li>
-                                 <li class="nav-item">
-                                    <a class="nav-link" href="javascript:void(0);">
-                                       <div class="contactInfo">
-                                          <div class="contactInfoIcon">
-                                             <i class="fa fa-envelope-o" aria-hidden="true"></i>
-                                          </div>
-                                          <div class="contactInfoTxt">
-                                             <h6>Email Address:</h6>
-                                             <p class="mb-0">info@example.com</p>
-                                          </div>
-                                       </div>
-                                    </a>
-                                 </li>
-                                 <li class="nav-item">
-                                    <a class="nav-link" href="javascript:void(0);">
-                                       <div class="contactInfo">
-                                          <div class="contactInfoIcon">
-                                             <i class="fa fa-clock-o" aria-hidden="true"></i>
-                                          </div>
-                                          <div class="contactInfoTxt">
-                                             <h6>Office Hour:</h6>
-                                             <p class="mb-0">08:00am - 6:00pm</p>
-                                          </div>
-                                       </div>
-                                    </a>
-                                 </li>
-                              </ul>
-                           </div>
-                        </div>
+                  </div>
+                  <div class="col-md-6 col-lg-3">
+                     <div class="footerCol">
+                        <h4>Contact</h4>
+                        <ul class="nav flex-column">
+                           <li class="nav-item"><a class="nav-link" href="javascript:void(0);"><i class="fa fa-map-marker"></i> Amuca, Lira City</a></li>
+                           <li class="nav-item"><a class="nav-link" href="javascript:void(0);"><i class="fa fa-phone"></i> +256 123 456 789</a></li>
+                           <li class="nav-item"><a class="nav-link" href="javascript:void(0);"><i class="fa fa-envelope"></i> info@citygatefarms.com</a></li>
+                        </ul>
                      </div>
                   </div>
                </div>
@@ -689,43 +541,18 @@
          </div>
          <div class="footerCopyRight">
             <div class="container">
-               <div class="footerCopyRightInner">
-                  <p class="mb-0">Copyright © 2023 <a href="javascript:void(0);">Farmland</a>. All Rights Reserved.</p>
-               </div>
+               <p class="mb-0">Copyright © 2026 City Gate Mixed Farm. All Rights Reserved.</p>
             </div>
          </div>
       </div>
    </footer>
-   <!--footer end-->
-
-
 
    <script src="js/jquery-3.6.4.min.js"></script>
    <script src="js/bootstrap.bundle.min.js"></script>
    <script src="js/wow.min.js"></script>
-   <script src="js/jquery.magnific-popup.js"></script>
-   <script src="js/jquery-ui.min.js"></script>
-   <script src="js/slick.min.js"></script>
-   <script src="js/owl.carousel.min.js"></script>
-   <script src="js/contact_form.js"></script>
-   <script src="js/grt-youtube-popup.js"></script>
-   <script src="js/jquery.fancybox.min.js"></script>
    <script src="js/custom.js"></script>
-
    <script>
-      $(".youtube-link").grtyoutube({
-         autoPlay: true,
-         theme: "dark",
-      });
-      $('#LoadMoreBtn span .btnInnerTxt').click(function() {
-         $('.loadMore').slideToggle();
-         if ($('#LoadMoreBtn span .btnInnerTxt').text() == "Load Less") {
-            $(this).text("Load More")
-         } else {
-            $(this).text("Load Less")
-         }
-      });
+      new WOW().init();
    </script>
 </body>
-
 </html>
