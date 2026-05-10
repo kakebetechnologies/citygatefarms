@@ -1,5 +1,5 @@
 const fs = require('fs');
-const p = 'c:/Users/SEDRICK/Documents/GitHub/citygatefarms/home1.html';
+const p = 'c:/Users/SEDRICK/Documents/GitHub/citygatefarms/index.html';
 const s = fs.readFileSync(p, 'utf8');
 
 const newStyles = `

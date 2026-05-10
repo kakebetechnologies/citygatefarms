@@ -35,14 +35,15 @@
    <link rel="shortcut icon" type="image/png" href="images/logo/favcon.png">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
-        :root {
-            --farm-green: #2F5D3A;
-            --cream: #FAF7F0;
-            --earth: #C9A978;
-            --charcoal: #1A1A1A;
-            --white: #FFFFFF;
-            --soft-shadow: 0 8px 32px rgba(47, 93, 58, 0.12);
-        }
+         :root {
+             --farm-green: #2F5D3A;
+             --cream: #FAF7F0;
+             --earth: #C9A978;
+             --charcoal: #1A1A1A;
+             --white: #FFFFFF;
+             --soft-shadow: 0 8px 32px rgba(47, 93, 58, 0.12);
+             --cta-green: #C9A978;
+         }
         
         * { box-sizing: border-box; }
         
@@ -149,29 +150,29 @@
             opacity: 0;
             transform: translateY(24px);
         }
-        .cg-hero__cta {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 16px 34px;
-            border-radius: 100px;
-            background: var(--cg-green);
-            color: #fff;
-            font-size: 13px;
-            font-weight: 600;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            text-decoration: none;
-            transition: transform 0.35s ease, box-shadow 0.35s ease, background 0.35s ease;
-            opacity: 0;
-            transform: translateY(24px);
-        }
-        .cg-hero__cta:hover {
-            background: #256428;
-            color: #fff;
-            transform: translateY(-3px);
-            box-shadow: 0 16px 36px rgba(46, 125, 50, 0.45);
-        }
+         .cg-hero__cta {
+             display: inline-flex;
+             align-items: center;
+             gap: 10px;
+             padding: 16px 34px;
+             border-radius: 100px;
+             background: var(--cta-green);
+             color: var(--charcoal);
+             font-size: 13px;
+             font-weight: 600;
+             letter-spacing: 1.5px;
+             text-transform: uppercase;
+             text-decoration: none;
+             transition: transform 0.35s ease, box-shadow 0.35s ease, background 0.35s ease;
+             opacity: 0;
+             transform: translateY(24px);
+         }
+         .cg-hero__cta:hover {
+             background: var(--earth);
+             color: var(--charcoal);
+             transform: translateY(-3px);
+             box-shadow: 0 16px 36px rgba(201, 169, 120, 0.45);
+         }
         .cg-hero__cta i {
             transition: transform 0.35s ease;
         }
@@ -786,11 +787,30 @@
             transition: background 0.3s ease;
         }
         
-        .newsletter-form button:hover {
-            background: var(--earth);
-        }
-        
-        .fade-in {
+         .newsletter-form button:hover {
+             background: var(--earth);
+         }
+         
+         /* Book a Visit button color */
+         .nav-link.btn[href="login.html"] {
+             background: var(--cta-green) !important;
+             color: var(--charcoal) !important;
+         }
+         
+         .nav-link.btn[href="login.html"]:hover {
+             background: var(--earth) !important;
+         }
+         
+         .cta-band .modern-btn {
+             background: var(--cta-green);
+             color: var(--charcoal);
+         }
+         
+         .cta-band .modern-btn:hover {
+             background: var(--earth);
+         }
+         
+         .fade-in {
             opacity: 0;
             transform: translateY(24px);
             transition: all 0.8s ease;
@@ -899,7 +919,7 @@
                <div class="collapse navbar-collapse" id="collapsibleNavbar">
 <ul class="navbar-nav">
 <li class="nav-item active">
-                         <a class="nav-link" href="home1.html"><span>Home</span></a>
+                          <a class="nav-link" href="index.html"><span>Home</span></a>
                       </li>
                       <li class="nav-item">
                          <a class="nav-link" href="about-us.html">About Us</a>
@@ -2442,7 +2462,7 @@
          <div class="footerCopyRight">
             <div class="container">
                <div class="footerCopyRightInner">
-                  <p class="mb-0 fadein">Copyright © 2026 <a href="home1.html">City Gate Mixed Farm</a>. All Rights Reserved.</p>
+                   <p class="mb-0 fadein">Copyright © 2026 <a href="index.html">City Gate Mixed Farm</a>. All Rights Reserved.</p>
                </div>
             </div>
          </div>
