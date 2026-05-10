@@ -1,4 +1,4 @@
-@include for-min-1200{
+﻿@include for-min-1200{
     .broilerBreederRow{
         align-items: center;
     }
@@ -23,9 +23,6 @@
     }
     .checkoutAside .productBox .asideProductItem .asideProdtBx {
         grid-template-columns: 1fr 80px;
-    }
-    .farmlandImage img {
-        width: 400px;
     }
 }
 
@@ -259,9 +256,6 @@
     .singleVideoSlider.poultryProductsSlider{
         padding-top: 0;
     }
-    .errorSec .errorSecInner .errorSecGroup .farmlandCommingSoon h2 {
-        font-size: 54px;
-    }
     .errorSec .errorSecInner .errorSecGroup {
         gap: 20px;
     }
@@ -437,15 +431,6 @@
     }
     .contactSec .contactForm h4 {
         font-size: 25px;
-    }
-    .errorSec .errorSecInner .errorSecGroup .farmlandCommingSoon h2 {
-        font-size: 36px;
-    }
-    .errorSec .errorSecInner .errorSecGroup .farmlandComingForm form .inputGroup {
-        flex-direction: column;
-    }
-    .farmlandComingForm .inputGroup .btn-1 span{
-        justify-content: space-between;
     }
     .loginSec .loginSecRow .loginSecCol.loginSecCol2 .loginSecColInner .loginFormBox .loginFormGroup .loginRegisterTab .nav li a {
         padding: 8px 20px;
@@ -627,9 +612,6 @@
     .contactSec .contactInfo .infoGroup a .infoGroupItem {
         gap: 10px;
         padding: 15px;
-    }
-    .errorSec .errorSecInner .errorSecGroup .farmlandCommingSoon h2 {
-        font-size: 32px;
     }
     .actigen .blogSingleInner .poultryProductAside .growthBoosterOuter a .growthBooster .growthBoosterInner .growthBoosterInnerGroup .growthBoosterImg .pulseAnimationCircle {
         right: 0px;
