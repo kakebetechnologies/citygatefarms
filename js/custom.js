@@ -5,6 +5,7 @@
 // ============================================
 $(document).ready(function() {
     let lastScrollTop = 0;
+    let isFixed = false; // track if header is in fixed state
     const header = $('.header');
     const fixedThreshold = 150; // px - when header becomes fixed
     
@@ -14,40 +15,43 @@ $(document).ready(function() {
     $(window).on('scroll', function() {
         const currentScroll = $(this).scrollTop();
         const windowWidth = $(window).width();
+        const nowFixed = currentScroll > fixedThreshold;
         
-        // Handle fixed/relative state
-        if (currentScroll > fixedThreshold) {
-            // Make header fixed (sticky)
-            if (!header.hasClass('headerActive')) {
-                header.addClass('headerActive');
-            }
-        } else {
-            // Remove fixed state, ensure visible
-            header.removeClass('headerActive');
-            header.removeClass('header-hidden').removeClass('header-hidden-mobile').addClass('header-visible');
-            lastScrollTop = currentScroll;
-            return; // Skip hide/show logic when not fixed
+        // State change: became fixed or returned to relative
+        if (nowFixed && !isFixed) {
+            // Just became fixed
+            header.addClass('headerActive');
+            isFixed = true;
+            // Ensure header is visible when it first sticks
+            header.removeClass('header-hidden').addClass('header-visible');
+        } else if (!nowFixed && isFixed) {
+            // Just became relative (scrolled back to top)
+            header.removeClass('headerActive header-hidden header-visible header-hidden-mobile');
+            isFixed = false;
         }
         
-        // Hide/Show logic only when header is fixed (scrolled past threshold)
-        if (currentScroll > lastScrollTop) {
-            // Scrolling down - hide
-            if (windowWidth > 768) {
-                header.addClass('header-hidden').removeClass('header-visible');
+        // If currently fixed, handle hide/show based on scroll direction
+        if (isFixed) {
+            if (currentScroll > lastScrollTop) {
+                // Scrolling down - hide
+                if (windowWidth > 768) {
+                    header.addClass('header-hidden').removeClass('header-visible');
+                } else {
+                    header.addClass('header-hidden-mobile');
+                }
             } else {
-                header.addClass('header-hidden-mobile');
-            }
-        } else {
-            // Scrolling up - show
-            if (windowWidth > 768) {
-                header.removeClass('header-hidden').addClass('header-visible');
-            } else {
-                header.removeClass('header-hidden-mobile');
+                // Scrolling up - show
+                if (windowWidth > 768) {
+                    header.removeClass('header-hidden').addClass('header-visible');
+                } else {
+                    header.removeClass('header-hidden-mobile');
+                }
             }
         }
         
         lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
     });
+});
 });
 
 
